@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing</title>
+</head>
+<style> 
+    body{
+      font-family:arial;
+      text-align: center;
+     }
+   .marquee {
+       background-color: #fff; /* Warna latar belakang */
+       color: black; /* Warna teks agar kontras dengan latar belakang */
+       padding: 10px; /* Berikan ruang di sekitar teks */
+       animation: backgroundAnimation 10s infinite alternate; /* Ubah durasi dan efek animasi sesuai keinginan */
+   }
+   
+   @keyframes backgroundAnimation {
+       0% { background-color: #ff6699; } /* Warna awal */
+       100% { background-color: #ffcc00; } /* Warna akhir */
+   }
+     </style>
+    <body>
+   <h1>zzz</H1>
+   <script>
+     // Mencegah klik kanan
+   document.addEventListener('contextmenu', function(e) {
+       e.preventDefault();
+   });
+   
+   // Mencegah Ctrl+C
+   document.addEventListener('keydown', function(e) {
+       if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
+           e.preventDefault();
+       }
+   });
+   
+   // Mencegah Shift+I
+   document.addEventListener('keydown', function(e) {
+       if (e.shiftKey && (e.key === 'i' || e.key === 'I')) {
+           e.preventDefault();
+       }
+   });
+   
+   // Mencegah pemilihan teks
+   document.addEventListener('selectstart', function(e) {
+       e.preventDefault();
+   });
+   </script>
+    
+</body>
+</html>

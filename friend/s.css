@@ -1,0 +1,117 @@
+
+        /* CSS untuk styling halaman */
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            color: #f0f0f0;
+            background-color: #0b0c10; /* Warna latar belakang gelap */
+            overflow-x: hidden; /* Menghilangkan scrollbar horizontal */
+        }
+
+        header {
+            background-color: rgba(17, 20, 24, 0.9); /* Transparansi untuk latar belakang header */
+            color: #64ffda;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1; /* Tetap di atas konten */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #64ffda;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #89b4fa; /* Ubah warna teks saat hover */
+        }
+
+        main {
+            padding-top: 100px; /* Beri jarak dari header */
+            margin: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #64ffda;
+            text-transform: uppercase;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #64ffda; /* Garis bawah judul */
+            padding-bottom: 10px;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1); /* Latar belakang transparan */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: 1px solid #64ffda;
+        }
+
+        footer {
+            background-color: rgba(17, 20, 24, 0.9); /* Transparansi untuk latar belakang footer */
+            color: #64ffda;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Tombol dengan efek hover */
+        .cta {
+            background-color: #64ffda;
+            color: #0b0c10;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cta:hover {
+            background-color: #89b4fa; /* Ubah warna latar belakang saat hover */
+            color: white;
+        }
+
+        /* Animasi untuk efek hover pada tautan */
+        a:hover {
+            text-decoration: underline;
+            color: #89b4fa;
+            transition: color 0.3s;
+        }
+
+        /* Efek animasi saat mengarahkan mouse */
+        .bio img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            transition: transform 0.3s;
+        }
+
+        .bio img:hover {
+            transform: scale(1.1); /* Efek zoom saat hover */
+        }
