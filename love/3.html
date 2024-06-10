@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Foto</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body oncontextmenu="return false;" onkeydown="return false;" onmousedown="return false;" ondragstart="return false;" onselectstart="return false;" style="cursor: default;">
+
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" onclick="toggleSidebar()">&#9776;</div>
+        <div class="menu">
+            <div class="menu-item">Home</div>
+            <div class="menu-item">About</div>
+            <div class="menu-item">Gallery</div>
+            <div class="menu-item">Contact</div>
+        </div>
+    </div>
+    
+    <div class="navbar">
+        <div class="menu-btn" onclick="toggleSidebar()">&#9776;</div>
+    </div>
+<div class="container"></div>
+<ul class="breadcrumb">
+    <li><a href="index.html">For Her</a></li>
+    <li>Album 3</li>
+</ul>
+<p id="info">Aku buatkan perAlbum 10 Foto supaya internet kamu gak terbebani. Selain itu juga kalau koneksi internetnya ga kuat, fotonya gak bakalan bisa dimuat sama-sekali</p>
+<div class="animated-background">
+    <marquee><img src="https://cur.glitter-graphics.net/pub/71/71189gsj9zvs4ge.gif">Foto ini aku Buatkan untuk <a href="https://aldi.my.id/p/a.html">Adinda</a>. Aku buatkan gambar ini Untuk Hadiah. <i>Semoga kamu Suka ya</i><img src="https://cur.glitter-graphics.net/pub/40/40019esh82nekfd.gif"></marquee>    
+    </div>
+<!-- Container untuk thumbnail -->
+    <div class="thumbnail-container">
+        <!--21--><img class="thumbnail" src="img/her/a-----21.png" alt="Thumbnail 21" onclick="openModal('img/her/a-----21.png')">
+<!--22--><img class="thumbnail" src="img/her/a-----22.png" alt="Thumbnail 22" onclick="openModal('img/her/a-----22.png')">
+<!--23--><img class="thumbnail" src="img/her/a-----23.jpg" alt="Thumbnail 23" onclick="openModal('img/her/a-----23.jpg')">
+<!--24--><img class="thumbnail" src="img/her/a-----24.jpg" alt="Thumbnail 24" onclick="openModal('img/her/a-----24.jpg')">
+<!--25--><img class="thumbnail" src="img/her/a-----25.jpg" alt="Thumbnail 25" onclick="openModal('img/her/a-----25.jpg')">
+<!--26--><img class="thumbnail" src="img/her/a-----26.jpg" alt="Thumbnail 26" onclick="openModal('img/her/a-----26.jpg')">
+<!--27--><img class="thumbnail" src="img/her/a-----27.jpg" alt="Thumbnail 27" onclick="openModal('img/her/a-----27.jpg')">
+<!--28--><img class="thumbnail" src="img/her/a-----28.jpg" alt="Thumbnail 28" onclick="openModal('img/her/a-----28.jpg')">
+<!--29--><img class="thumbnail" src="img/her/a-----29.png" alt="Thumbnail 29" onclick="openModal('img/her/a-----29.png')">
+<!--30--><img class="thumbnail" src="img/her/a-----30.png" alt="Thumbnail 30" onclick="openModal('img/her/a-----30.png')">
+    </div>    
+
+    <div class="animated-background">
+        <a id="prev" href="2.html">Album 2</a><br>
+        <a id="next" href="4.html">Album 4</a><br>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+
+</div>
+<script src="func.js"></script>
+</body>
+</html>

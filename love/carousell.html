@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Her</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .navbar.navbar-custom {
+            /*overflow: hidden;*/
+            background-color: pink; /* Mengubah warna navbar menjadi pink */
+        }
+
+        .navbar.navbar-custom a {
+            float: left;
+            display: block;
+            color: magenta; /* Mengubah warna teks menjadi magenta di luar keadaan hover */
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s; /* Menambahkan transisi animasi */
+        }
+
+        .navbar.navbar-custom a:hover {
+            background-color: #ddd; /* Mengubah warna latar belakang saat dihover */
+            color: black;
+        }
+
+        .navbar.navbar-custom a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .navbar.navbar-custom .nav-next-prev {
+            display: none; /* Menyembunyikan tombol Next dan Prev secara default */
+        }
+
+        .animated-background {
+            font-family: 'Arial', sans-serif;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            background: url('https://i.pinimg.com/originals/7c/83/af/7c83afe4915fc72564941ab32ff1e37d.gif') no-repeat center center fixed; /* Ganti dengan URL gambar GIF bergerak */
+            background-size: cover;
+        }
+
+        /* Animasi untuk memberi efek agar teks terlihat jelas */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Terapkan animasi ke teks */
+        .animated-background h1 {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Aturan CSS untuk menyesuaikan tampilan marquee */
+        marquee a {
+            opacity: 0;
+            color: transparent; /* Membuat teks menjadi tidak terlihat */
+            text-decoration: underline; /* Memberi garis bawah pada hyperlink */
+        }
+        marquee a:hover {
+            color: transparent; /* Tetap mempertahankan transparansi saat dihover */
+        }
+        marquee i {
+            font-style: italic; /* Menerapkan gaya teks italic pada elemen <i> */
+        }
+
+        /* Aturan CSS untuk mengatur tinggi dan lebar gambar di slider */
+        .carousel-inner img {
+            width: 100%; /* Gambar akan mengisi lebar kontainer */
+            height: auto; /* Tinggi gambar disesuaikan agar tidak terdistorsi */
+            display: none; /* Sembunyikan gambar */
+        }
+      
+    @keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+      
+.popout {
+  position: fixed;
+  display: none;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+  color: pink;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  z-index: 9999;
+  animation: blink 2s infinite;
+  text-align: center;
+  width: 300px; /* Menyesuaikan lebar popup */
+}
+
+.pop-out {
+  position: fixed;
+  display: none;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: magenta;
+  color: white;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  z-index: 9999;
+  animation: blink 1.2s infinite;
+  text-align: center;
+  width: 300px; /* Menyesuaikan lebar popup */
+}
+
+    </style>
+</head>
+<body oncontextmenu='return false;' onkeydown='return false;' onmousedown='return false;' ondragstart='return false' onselectstart='return false' style='-moz-user-select: none; cursor: default;'>
+
+  <div id="akhir" class="popout">
+    <i><b>Ini Sudah yang Terakhir kak</b></i>
+  </div>
+  
+  <div id="awal" class="popout">
+    <i><b>Kakak sudah di halaman Paling Depan kok</b></i>
+  </div>
+  
+   <div id="keakhir" class="pop-out">
+    <b>Ini yang Terakhir</b>
+  </div>
+  
+     <div id="keawal" class="pop-out">
+       <b>Ini yang Pertama</b>
+  </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <!-- Hapus kelas 'collapse' dari sini -->
+        <div id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a id="showNowButton" class="nav-link" href="#" onclick="showNow()">Show Now</a>
+                </li>
+                <li class="nav-item nav-next-prev">
+                    <a class="nav-link" href="#" onclick="previousPage()">Previous Page</a>
+                </li>
+                <li class="nav-item nav-next-prev">
+                    <a class="nav-link" href="#" onclick="nextPage()">Next Page</a>
+                </li>
+                <li class="nav-item">
+                    <a id="showLastButton" class="nav-link" href="#" onclick="showLast()">Show Last</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Tag 1 -->
+<div id="page1" class="hidden">
+  <div class="animated-background"><h1 style="text-align: center">Slider 1</h1></div>
+    <!-- Slider 1 -->
+    <div id="carouselExampleAutoplaying1" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!--1--><div class="carousel-item active">
+                <img src="https://i.ibb.co/wsrnJ3W/f02a0d95-3b28-41d9-8dbd-f7ebf4c49d0e.jpg" class="d-block w-100" alt="...">
+            </div>
+            <!--2--><div class="carousel-item">
+                <img src="https://i.ibb.co/SPxS2kR/f242a679-f122-44db-9a49-62dee92638fc.jpg" class="d-block w-100" alt="...">
+            </div>
+            <!--3--><div class="carousel-item">
+                <img src="https://i.ibb.co/hK1YgnR/IMG-20240218-101301.png" class="d-block w-100" alt="...">
+            </div>
+            <!--4--><div class="carousel-item">
+                <img src="https://i.ibb.co/18FX27j/d6725681-5c2a-4520-a477-a49981415fa2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <!--5--><div class="carousel-item">
+                <img src="https://i.ibb.co/2ZHT8sP/90907745-2f71-4e9f-85f6-87622b791eeb.jpg" class="d-block w-100" alt="...">
+            </div>
+            <!--6--><div class="carousel-item">
+                <img src="https://i.ibb.co/S3WJdjs/4ac9ab84-272d-4ac9-81ea-a28b9b411423.jpg" class="d-block w-100" alt="...">
+            </div>
+            <!--7--><div class="carousel-item">
+                <img src="https://i.ibb.co/W0FMg8v/5f59c360-5ae2-4c6a-9622-c80c6799af46.jpg" class="d-block w-100" alt="...">
+            </div>
+            <!--8--><div class="carousel-item">
+                <img src="https://i.ibb.co/0qVZWv3/087626e3-7d70-482f-8cd9-01c638d01531.jpg" class="d-block w-100" alt="...">
+            </div>
+            <!--9--><div class="carousel-item">
+                <img src="https://i.ibb.co/WzPQj5v/d6863de3-0745-471a-833d-81b1f29ff460.jpg" class="d-block w-100" alt="...">
+            </div>
+            <!--10--><div class="carousel-item">
+                <img src="https://i.ibb.co/tPtrMk8/2b17e7db-603d-4ce8-b3c2-85cc60d379bc.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying1" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying1" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div><br>
+</div>
+
+<!-- Tag 2 -->
+<div id="page2" class="hidden">
+    <div class="animated-background"><h1 style="text-align: center">Slider 2</h1></div>
+<!-- Slider 2 -->
+<div id="carouselExampleAutoplaying2" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!--11--><div class="carousel-item active">
+        <img src="https://i.ibb.co/0C0PYRs/8d0075b7-f699-4747-b8ad-5bf0673503ef.jpg" class="d-block w-100" alt="...">
+      </div>
+      <!--12--><div class="carousel-item">
+        <img src="https://i.ibb.co/JBBSsNt/8df77fae-b07c-4dd7-a849-ccaa590540c4-1.png" class="d-block w-100" alt="...">
+      </div>
+      <!--13--><div class="carousel-item">
+        <img src="https://i.ibb.co/hZCNDbM/8c720274-d7ab-44ce-adf7-4d63f55244bd.jpg" class="d-block w-100" alt="...">
+      </div>
+      <!--14--><div class="carousel-item">
+        <img src="https://i.ibb.co/RT2V1Nw/2dd4c8cb-f34a-4456-a4ff-1e29a6f36bef.jpg" class="d-block w-100" alt="...">
+      </div>
+      <!--15--><div class="carousel-item">
+        <img src="https://i.ibb.co/tHd8jtr/8733aca1-f27d-407d-82b3-a97ca913eedc.jpg" class="d-block w-100" alt="...">
+      </div>
+      <!--16--><div class="carousel-item">
+        <img src="https://i.ibb.co/hRc1hH1/401e0f5b-a05e-4398-b1f1-9036a32c0190.jpg" class="d-block w-100" alt="...">
+      </div>
+      <!--17--><div class="carousel-item">
+        <img src="https://i.ibb.co/sbyrtfF/254fc5c1-f098-4375-a675-365ed3af38d6.jpg" class="d-block w-100" alt="...">
+      </div>
+      <!--18--><div class="carousel-item">
+        <img src="https://i.ibb.co/6JNwLq3/270ec7d5-613e-4874-b9f7-2efa68ac711d.jpg" class="d-block w-100" alt="...">
+      </div>
+      <!--19--><div class="carousel-item">
+        <img src="https://i.ibb.co/SPmzVfn/cf69da41-2bde-4cd8-a515-b66051ae3670.jpg" class="d-block w-100" alt="...">
+      </div>
+      <!--20--><div class="carousel-item">
+        <img src="https://i.ibb.co/1r2dnrC/IMG-20240219-010827.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying2" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying2" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div><br>
+</div>
+
+<!-- Tag 3 -->
+<div id="page3" class="hidden">
+    <div class="animated-background"><h1 style="text-align: center">Slider 3</h1></div>
+<!-- Slider 3 -->
+<div id="carouselExampleAutoplaying3" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!--21--><div class="carousel-item active">
+        <img src="https://i.ibb.co/Fz6wtj3/1f65bd04-c4f8-41d9-b53b-287b2a6af41a.png" class="d-block w-100" alt="...">
+      </div>
+  <!--22--><div class="carousel-item">
+    <img src="https://i.ibb.co/fM0hpfk/c7c7ab97-38a2-410c-959b-6ed2ddb59fd7.png" class="d-block w-100" alt="...">
+  </div>
+  <!--23--><div class="carousel-item">
+    <img src="https://i.ibb.co/jMXWwXF/58980849-cf3d-42f8-b989-4be8653abe31.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--24--><div class="carousel-item">
+    <img src="https://i.ibb.co/wMfMK7k/7364e7a4-a807-43e9-8487-ab21e296a03e.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--25--><div class="carousel-item">
+    <img src="https://i.ibb.co/x8hJZ3C/76fd2002-4880-4380-a926-44fead6222a5.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--26--><div class="carousel-item">
+    <img src="https://i.ibb.co/vkw63dm/42c46e24-662b-486b-813f-95aa48829dd2.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--27--><div class="carousel-item">
+    <img src="https://i.ibb.co/SXc0ckZ/37d491f4-6259-410d-bcfc-faef3dd586e0.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--28--><div class="carousel-item">
+    <img src="https://i.ibb.co/VDxGVrg/4e91a268-bb4b-43f2-b8c8-575f39c807f1.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--29--><div class="carousel-item">
+    <img src="https://i.ibb.co/ZJR4rV2/81184d6f-4b87-4ae0-8568-dc28370f6b61-1.png" class="d-block w-100" alt="...">
+  </div>
+  <!--30--><div class="carousel-item">
+    <img src="https://i.ibb.co/GJpMQd3/6590b139-b73b-45d0-a4ca-e953a5cddc52.png" class="d-block w-100" alt="...">
+  </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying3" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying3" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div><br>
+</div>
+
+<!-- Tag 4 -->
+<div id="page4" class="hidden">
+    <div class="animated-background"><h1 style="text-align: center">Slider 4</h1></div>
+<!-- Slider 4 -->
+<div id="carouselExampleAutoplaying4" class="carousel slide" data-bs-ride="carousel">
+   <div class="carousel-inner">
+      <!--31--><div class="carousel-item active">
+   <img src="https://i.ibb.co/n7VfDLf/1f51d3b3-e858-4fee-bf3a-5dbee7b992d8.png" class="d-block w-100" alt="...">
+      </div>
+  <!--32--><div class="carousel-item">
+    <img src="https://i.ibb.co/RHzrrfF/editedb02957d3-ac95-473f-bf80-a69153174a87.png" class="d-block w-100" alt="...">
+  </div>
+  <!--33--><div class="carousel-item">
+    <img src="https://i.ibb.co/LhXW123/b53aec00-be14-4661-8fde-105ad74de1fc.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--34--><div class="carousel-item">
+    <img src="https://i.ibb.co/K2HR5Yp/50a53e6b-8894-4a32-8005-f4aa5305bfbf.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--35--><div class="carousel-item">
+    <img src="https://i.ibb.co/WDCM3XG/39a732f8-04eb-4bb8-9c8b-e91765fba19c.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--36--><div class="carousel-item">
+    <img src="https://i.ibb.co/ncrdBch/8f4ec1a6-17d1-4010-b70b-3159f4005ee7.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--37--><div class="carousel-item">
+    <img src="https://i.ibb.co/rbz2kvd/8b11bb6f-b428-4b44-be0c-472b4f3522c6.png" class="d-block w-100" alt="...">
+  </div>
+  <!--38--><div class="carousel-item">
+    <img src="https://i.ibb.co/WpHX5MJ/cc9099fc-8d3c-42e1-a312-4cea2eb80547.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--39--><div class="carousel-item">
+    <img src="https://i.ibb.co/xYWdsNv/c6d3898d-efc2-47a0-b85a-bc702da7e020.png" class="d-block w-100" alt="...">
+  </div>
+  <!--40--><div class="carousel-item">
+    <img src="https://i.ibb.co/GsD6gMC/be91c5c6-ddb4-4dad-9013-23b816614c18-1.png" class="d-block w-100" alt="...">
+  </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying4" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying4" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div><br>
+</div>
+
+<!-- Tag 5 -->
+<div id="page5" class="hidden">
+    <div class="animated-background"><h1 style="text-align: center">Slider 5</h1></div>
+<!-- Slider 5 -->
+<div id="carouselExampleAutoplaying5" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+  <!--41--><div class="carousel-item active">
+    <img src="https://i.ibb.co/23VqxyL/5ab1d7e7-bede-4934-902d-9960172077b4.jpg" class="d-block w-100" alt="...">
+    </div>
+  <!--42--><div class="carousel-item">
+    <img src="https://i.ibb.co/nncvTt4/04435c03-6a66-4d73-9de6-019d81ff5e99.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--43--><div class="carousel-item">
+    <img src="https://i.ibb.co/G0YrL0p/099e4ffb-e134-4e06-beef-7fc14558c527.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--44--><div class="carousel-item">
+    <img src="https://i.ibb.co/ySs6w23/07b31dc3-7798-4b4f-a200-057012b07a2a.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--45--><div class="carousel-item">
+    <img src="https://i.ibb.co/jJ4hTQ5/6108faba-b0b2-480f-b93c-90cb8da43a78.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--46--><div class="carousel-item">
+    <img src="https://i.ibb.co/JFDtzC0/aff6cd04-6723-4565-a3b0-7731d1b40976.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--47--><div class="carousel-item">
+    <img src="https://i.ibb.co/c6yn8Pb/a973c75b-5150-4bb0-bac5-0fc653634c22.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--48--><div class="carousel-item">
+    <img src="https://i.ibb.co/kDBtC8F/e76b4ce4-4d3a-45c2-8f93-8d5a2a4a9b1c.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--49--><div class="carousel-item">
+    <img src="https://i.ibb.co/PTC0rxv/b597f686-f4a5-4958-842d-3ddc9294c6bc.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--50--><div class="carousel-item">
+    <img src="https://i.ibb.co/4pFzvw0/67adf3fc-4f63-4271-bca0-e93c6969fca1.jpg" class="d-block w-100" alt="...">
+  </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying5" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying5" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div><br>
+</div>
+</div>
+
+<!-- Tag 6 -->
+<div id="page6" class="hidden">
+    <div class="animated-background"><h1 style="text-align: center">Slider 6</h1></div>
+<!-- Slider 6 -->
+<div id="carouselExampleAutoplaying6" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+  <!--51--><div class="carousel-item active">
+    <img src="https://i.ibb.co/jhDkj9f/21de25e9-6f5c-4eed-b41f-737d6c334ff4.png" class="d-block w-100" alt="...">
+    </div>
+  <!--52--><div class="carousel-item">
+    <img src="https://i.ibb.co/rpbpH73/31171f37-378d-41bd-a85c-99a7fd47fb76.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--53--><div class="carousel-item">
+    <img src="https://i.ibb.co/Qb5w0M6/4654ac2d-bec5-4303-afc4-91cf2e34302c.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--54--><div class="carousel-item">
+    <img src="https://i.ibb.co/ckqJq4T/d4bb5390-f0f5-48c3-ac15-bb8979eed8b6.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--55--><div class="carousel-item">
+    <img src="https://i.ibb.co/Fw3FKv3/12523e20-5120-41e7-a431-a577bb486201.jpg" class="d-block w-100" alt="...">
+  </div>
+  <!--56--><div class="carousel-item">
+    <img src="https://i.ibb.co/DCLsBLS/4523a2a6-24f3-43cf-9bed-e597925da8ca.jpg" class="d-block w-100" alt="...">
+  </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying6" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying6" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div><br>
+</div>
+</div>
+  
+<!-- Tag 7 -->
+<div id="page7" class="hidden">
+    <div class="animated-background"><h1 style="text-align: center">Slider 7</h1></div>
+<!-- Slider 7 -->
+<div id="carouselExampleAutoplaying7" class="carousel slide" data-bs-ride="carousel">
+  <h1>Nanti ya aku Masih Bikin</h1>
+</div>  
+  </div> 
+  
+<div class="animated-background"><marquee><img src="https://cur.glitter-graphics.net/pub/71/71189gsj9zvs4ge.gif">Foto ini aku Buatkan untuk <a href="https://aldi.my.id/p/a.html">Adinda</a>. Aku buatkan gambar ini Untuk Hadiah. <i>Semoga kamu Suka ya</i><img src="https://cur.glitter-graphics.net/pub/40/40019esh82nekfd.gif"></marquee></div>
+  </body>
+<script>
+    var currentPage = 1; // Menyimpan halaman saat ini
+
+    // Fungsi untuk menampilkan tag tertentu dan menyembunyikan yang lainnya
+    function showTag(tagId) {
+        var tags = document.querySelectorAll('div[id^="page"]');
+        tags.forEach(function(tag) {
+            if (tag.id === tagId) {
+                tag.classList.remove('hidden');
+            } else {
+                tag.classList.add('hidden');
+            }
+        });
+    }
+
+// Fungsi untuk menampilkan halaman saat tombol "Show Now" ditekan
+function showNow() {
+    currentPage = 1; // Mengatur halaman saat ini menjadi 1
+    showTag('page1'); // Menampilkan tag halaman 1
+    document.getElementById('showNowButton').innerText = 'Ke Slider1'; // Mengubah teks tombol Show Now menjadi Ke Slider1
+    document.querySelectorAll('.nav-next-prev').forEach(function(el) {
+        el.style.display = 'inline-block'; // Menampilkan tombol Next dan Prev setelah tombol Show Now ditekan
+    });
+    document.getElementById('showLastButton').innerText = 'Slider Terakhir'; // Mengubah teks tombol Show Last menjadi Slider Terakhir
+    
+    // Tampilkan popup awal
+    document.getElementById('keawal').style.display = 'block';
+    // Atur waktu munculnya popup selama 2 detik
+    setTimeout(function() {
+        document.getElementById('keawal').style.display = 'none';
+    }, 2000); // 2000 milidetik = 2 detik
+}
+
+// Fungsi untuk menampilkan halaman saat tombol "Show Last" ditekan
+function showLast() {
+    currentPage = 7; // Mengatur halaman saat ini menjadi 7
+    showTag('page7'); // Menampilkan tag halaman 7
+    document.getElementById('showLastButton').innerText = 'Slider Terakhir'; // Mengubah teks tombol Show Last menjadi Slider Terakhir
+    document.querySelectorAll('.nav-next-prev').forEach(function(el) {
+        el.style.display = 'inline-block'; // Menampilkan tombol Next dan Prev setelah tombol Show Last ditekan
+    });
+    document.getElementById('showNowButton').innerText = 'Ke Slider1'; // Mengubah teks tombol Show Now menjadi Ke Slider1
+    
+    // Tampilkan popup akhir
+    document.getElementById('keakhir').style.display = 'block';
+    // Atur waktu munculnya popup selama 2 detik
+    setTimeout(function() {
+        document.getElementById('keakhir').style.display = 'none';
+    }, 2000); // 2000 milidetik = 2 detik
+}
+
+
+// Fungsi untuk menampilkan halaman sebelumnya
+function previousPage() {
+    if (currentPage > 1) { // Pastikan tidak berada di halaman pertama
+        currentPage--; // Mengurangi halaman saat ini
+        showTag('page' + currentPage); // Menampilkan tag halaman sebelumnya
+    } else {
+        // Tampilkan popup karena sudah di halaman pertama
+        document.getElementById('awal').style.display = 'block';
+        // Atur waktu munculnya popup selama 5 detik
+        setTimeout(function() {
+            document.getElementById('awal').style.display = 'none';
+        }, 4000); // 4000 milidetik = 4 detik
+    }
+}
+  
+// Fungsi untuk menampilkan halaman selanjutnya
+function nextPage() {
+    if (currentPage < 7) { // Pastikan tidak berada di halaman terakhir
+        currentPage++; // Menambah halaman saat ini
+        showTag('page' + currentPage); // Menampilkan tag halaman selanjutnya
+    } else {
+        // Tampilkan popup karena sudah di halaman terakhir
+        document.getElementById('akhir').style.display = 'block';
+        // Atur waktu munculnya popup selama 5 detik
+        setTimeout(function() {
+            document.getElementById('akhir').style.display = 'none';
+        }, 4000); // 4000 milidetik = 4 detik
+    }
+}
+
+
+</script>
+
+</html>
