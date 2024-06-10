@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+ background-image: url('https://i.pinimg.com/originals/c3/27/42/c3274236e4e16329c247da3a95871ad4.gif');
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+
+blockquote {
+  border-left: 5px solid #007bff; /* Warna dan ketebalan garis penanda */
+  padding: 20px; /* Padding di dalam kotak */
+  margin: 20px 0; /* Margin di luar kotak */
+  background-color: #007bff; /* Warna latar belakang kotak */
+  color: #fff; /* Warna teks */
+  border-radius: 10px; /* Sudut bulat */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+}
+
+blockquote p {
+  margin-bottom: 20px; /* Jarak antara setiap paragraf */
+}
+
+.marquee {
+  background: url('https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?w=740&t=st=1710076499~exp=1710077099~hmac=d4dcfb105eadb5f91b4f33ddacb41fddf89b06f4f2fbb4e39a8e05d47eb5b187'); no-repeat center center/cover;
+  color: black;
+  padding: 20px;
+}

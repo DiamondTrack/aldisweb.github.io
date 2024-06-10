@@ -1,0 +1,195 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('https://wallpaperxyz.com/wp-content/uploads/Gif-Animated-Wallpaper-Background-Full-HD-Free-Download-for-PC-Macbook-261121-Wallpaperxyz.com-13.gif');
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+
+.container-nav {
+  padding: 20px; /* Ruang tambahan di dalam kontainer */
+  display: flex; /* Menggunakan flexbox */
+  justify-content: right; /* Memposisikan kontainer ke tengah secara horizontal */
+  align-items: center; /* Memposisikan kontainer ke tengah secara vertikal */
+}
+
+
+.container {
+  background-color: rgba(0, 100, 0, 0.7); /* Warna latar belakang dengan transparansi */
+  padding: 20px; /* Ruang tambahan di dalam kontainer */
+}
+
+.container h1,
+.container p {
+  color: #fff; /* Warna teks putih */
+}
+
+
+nav {
+  background: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+nav .logo {
+  float: left;
+}
+
+nav ul {
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul {
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block; /* Mengubah display menjadi inline-block */
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+
+nav ul li a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+nav ul li a:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+
+
+.hamburger {
+  display: none;
+  float: right;
+  cursor: pointer;
+}
+
+header {
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.marquee {
+  background: url('background.jpg'); no-repeat center center/cover;
+  color: #fff;
+  padding: 20px;
+}
+
+.icon {
+  float: left;
+  margin-right: 10px;
+}
+
+.info {
+  margin-top: 20px;
+  position: relative;
+  width: 300px; /* Sesuaikan lebar kotak sesuai kebutuhan */
+  height: 200px; /* Sesuaikan tinggi kotak sesuai kebutuhan */
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  transform: perspective(1000px) rotateY(-20deg); /* Memberikan efek 3D */
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); /* Efek bayangan 3D */
+}
+
+
+
+@media(max-width: 768px) {
+  nav .menu {
+    display: none;
+  }
+  nav .hamburger {
+    display: block;
+  }
+  nav.active .menu {
+    display: block;
+  }
+}
+
+
+.logo {
+  width: 100px; /* Lebar logo */
+  height: auto; /* Tinggi logo akan disesuaikan secara otomatis */
+  background-image: url('https://i.ibb.co/Dk5KhJV/IMG-20231210-175858.png'); /* URL gambar */
+  background-size: contain; /* Skala gambar agar sesuai dalam kontainer */
+  background-repeat: no-repeat; /* Hindari pengulangan gambar */
+  margin-right: 20px; /* Jarak antara logo dengan menu */
+}
+
+      #greeting {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    #sleepMessage {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  
+  #clock {background: #fffdfc;height: 100%;width: 100%;color: #3c4043;text-align: center;margin: 0;padding: 25px;border-radius: 22px;line-height: 1.6;border: 1px solid rgba(155,155,155,0.15);}
+#clock .time {letter-spacing: 0.05em;font-size: 55px;padding: 0px;background: rgba(255,255,255,.9);border-radius: 10px;border: 1px solid rgba(0,0,0,0.05);z-index: 1;position:relative;}
+#clock .date {letter-spacing: 0.1em;font-size: 20px;padding: 10px;}
+#clock .text {letter-spacing: 0.1em;font-size: 12px;padding: 25px;z-index: 1;position:relative;}
+
+#HTML98 {position:relative;overflow:hidden}
+#HTML98:after {content:'';display:block;position:absolute;bottom:0;right:0;width:120px;height:120px;background-image:linear-gradient(50deg,#ff4169,#8b41f6);background-repeat:no-repeat;border-radius:120px 0 22px;transition:opacity .3s;opacity:1}
+#HTML98:before {content:'';display:block;position:absolute;bottom:0;right:0;width:120px;height:120px;background-image:linear-gradient(230deg,#ff4169,#8b41f6);background-repeat:no-repeat;border-radius:120px 0 22px;transition:opacity .3s;opacity:1}
+#HTML98:hover:after {opacity:0}#HTML98:hover:before{opacity:1}body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('https://wallpaperxyz.com/wp-content/uploads/Gif-Animated-Wallpaper-Background-Full-HD-Free-Download-for-PC-Macbook-261121-Wallpaperxyz.com-13.gif');
+ background-size: cover;
+ background-repeat: no-repeat;
+}

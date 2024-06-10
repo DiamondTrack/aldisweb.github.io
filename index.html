@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Aldi’s biggest hope</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        #puisi {
+            white-space: pre-wrap;
+        }
+        #popup {
+            font-height: 100%;
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 255, 255, 0.9); 
+            z-index: 1000;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        .fadeIn {
+            display: block;
+            animation-name: fadeIn;
+            animation-duration: 1s;
+        }
+        .fadeOut {
+            animation-name: fadeOut;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+<body>
+    <div id="puisi"></div>
+    <div id="popup">Terimakasih</div>
+    
+    <script>
+        const text = `
+Di sudut senja, di ujung hari,
+Aku duduk dengan Sang "Lonely",
+Teman setia dalam sepi,
+Selalu hadir tanpa janji.
+
+Langit kelabu, bintang menyepi,
+Sang "Lonely" setia menemani,
+Saat dunia mengabaikan diri,
+Dia hadir, tak pernah pergi.
+
+Setiap hening malam yang sunyi,
+Sang "Lonely" ada di sini,
+Menghiasi kesepian hati,
+Mengisi kekosongan dalam diri.
+
+Namun di balik kesunyian ini,
+Terselip harapan yang tak terganti,
+Akan hadirnya teman sejati,
+Yang hadir bukan hanya dalam sepi.
+
+Seorang sahabat yang nyata,
+Bukan bayang, bukan ilusi semata,
+Yang mampu menyeka air mata,
+Dan memberi tawa dalam suka cita.
+
+Aku berharap dalam diam,
+Ada yang mendengar, tanpa bicara,
+Menemani langkah dalam alam,
+Menghapus sepi, menebar cinta.
+
+Di kala malam menjemput pagi,
+Aku menanti, penuh harapan di hati,
+Seorang teman yang sejati,
+Mengusir Sang "Lonely" pergi.
+
+Terangilah aku dengan persahabatan,
+Tersenyumlah di setiap pertemuan,
+Hingga kesunyian jadi kenangan,
+Bersamamu, dalam keabadian.
+`;
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("puisi").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100); // Typing speed
+            } else {
+                setTimeout(() => {
+                    const popup = document.getElementById('popup');
+                    popup.style.display = 'block';
+                    popup.classList.add('fadeIn');
+                    setTimeout(() => {
+                        popup.classList.remove('fadeIn');
+                        popup.classList.add('fadeOut');
+                        setTimeout(() => {
+                            window.location.href = 'index.htm';
+                        }, 1000); // 1 second delay after popup closes
+                    }, 3000); // 3 seconds delay before popup closes
+                }, 3000); // 3 seconds delay after typing finishes
+            }
+        }
+        window.onload = () => {
+            document.title = '😄'; // Clear the title
+            setTimeout(() => {
+                let title = "Aldi‘s biggest hope. Will Aldi have a friend who is truly a real friend? ";
+                let j = 0;
+                const titleInterval = setInterval(() => {
+                    document.title = title.substring(0, j);
+                    j++;
+                    if (j > title.length) clearInterval(titleInterval);
+                }, 400); // Typing speed for title
+            }, 3700); // 0.5 second delay before typing title
+            typeWriter(); // Start typing the poem
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="copyright.js"></script>
+  <title>Aldi's Linktree</title>
+  <style>
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image:url('https://i.pinimg.com/originals/68/13/5d/68135de1cb1f4ec5f81d0b7bb2bbd750.gif');
+  background-size: contain; 
+}
+
+.linktree {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 600px; /* Maksimum lebar container */
+}
+
+.link-column {
+  flex: 1; /* Setiap kolom akan memakan setengah lebar container */
+  display: flex;
+  flex-direction: column; /* Mengatur tautan menjadi kolom */
+  margin: 20px 0; /* Memberikan jarak atas dan bawah antara kolom tombol */
+}
+
+@keyframes changeBackground {
+  0% { background-color: #ff5858; }
+  25% { background-color: #3a7bd5; }
+  50% { background-color: #eb3349; }
+  75% { background-color: #1e3c72; }
+  100% { background-color: #c33764; }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.button {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 5px 0; /* Memberikan jarak antara tombol */
+}
+
+.button:hover {
+  transform: translateY(-5px);
+  animation: changeBackground 5s infinite;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:active {
+  transform: translateY(2px);
+}
+
+.button:not(:hover) {
+  animation: shake 1s infinite;
+}
+
+
+.gradient1 {
+  background: linear-gradient(45deg, #ff5858, #f09819);
+}
+
+.gradient2 {
+  background: linear-gradient(45deg, #3a7bd5, #3a6073);
+}
+
+.gradient3 {
+  background: linear-gradient(45deg, #eb3349, #f45c43);
+}
+
+.gradient4 {
+  background: linear-gradient(45deg, #1e3c72, #2a5298);
+}
+
+.gradient5 {
+  background: linear-gradient(45deg, #c33764, #1d2671);
+}
+
+.gradient6 {
+  background: linear-gradient(45deg, #56ab2f, #a8e063);
+}
+  </style>
+</head>
+<body>
+<div class="linktree">
+  <div class="link-column">
+    <a href="https://aldi.my.id" class="button gradient1">aldi.my.id</a>
+    <a href="https://aldi.setiadiputra.my.id" class="button gradient2">aldi.setiadiputra.my.id</a>
+    <a href="https://aldi.biz.id" class="button gradient3">aldi.biz.id</a>
+  </div>
+  <div class="link-column">
+    <a href="https://toko.aldi.my.id" class="button gradient4">toko.aldi.my.id</a>
+    <a href="https://pacar.aldi.my.id" class="button gradient5">pacar.aldi.my.id</a>
+    <a href="https://rumah.aldi.my.id" class="button gradient6">rumah.aldi.my.id</a>
+  </div>
+</div>
+</body>

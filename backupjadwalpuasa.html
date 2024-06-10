@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Jadwal Puasa Ramadan 1445 H</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr.current {
+  background-color: cyan; /* Warna untuk baris yang sedang berlangsung */
+}
+
+h1 {
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+    .countdown {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Menambahkan properti box-shadow */
+}
+
+      
+  #progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: #f0f0f0;
+    position: relative;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+  #progress {
+    height: 100%;
+    width: 0;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+  }
+  .progress-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    font-weight: bold;
+  }
+  #progress-text-second {
+    left: 10%;
+  }
+  #progress-text-minute {
+    right: 10%;
+  }
+  
+  .footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+  
+
+  .kotak {
+    width: 200px;
+    height: 100px;
+    background: linear-gradient(to right, blue, black);
+    position: relative;
+    animation: gerak 3s infinite alternate;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 999;
+  }
+
+  @keyframes gerak {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: calc(100% - 200px);
+    }
+  }
+
+  .teks {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: white;
+    animation: kedip 1s infinite alternate;
+  }
+
+  @keyframes kedip {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+<marquee>Hamppir final gaes! Kalau ada bug/error Plis lapor ke Pak RT ya!</marquee>
+<div class="container">
+  <a href="https://wa.me/6289517617269?text=Lapor+Pak+RT!+Ada+Error%0AErrornya!" onclick="toggleMovement()">
+    <div class="kotak">
+      <div class="teks">LAPORKAN EROR!</div>
+    </div>
+  </a>
+</div>
+
+<div class="container">
+  <h1>Jadwal Puasa Ramadan 1445 H</h1>
+  <table id="jadwalTable">
+  <tr>
+    <th>Tanggal Masehi</th>
+    <th>Tanggal Hijriyah</th>
+    <th>IMSAK</th>
+    <th>SUBUH</th>
+    <th>TERBIT</th>
+    <th>DUHA</th>
+    <th>ZUHUR</th>
+    <th>ASAR</th>
+    <th>MAGRIB</th>
+    <th>ISYA'</th>
+  </tr>
+  <tr>
+    <td>12 Maret 2024</td>
+    <td>1 Ramadan 1445 H</td>
+    <td>04:33</td>
+    <td>04:43</td>
+    <td>05:55</td>
+    <td>06:22</td>
+    <td>12:06</td>
+    <td>15:12</td>
+    <td>18:11</td>
+    <td>19:19</td>
+  </tr>
+  <tr>
+    <td>13 Maret 2024</td>
+    <td>2 Ramadan 1445 H</td>
+    <td>04:33</td>
+    <td>04:43</td>
+    <td>05:55</td>
+    <td>06:22</td>
+    <td>12:06</td>
+    <td>15:12</td>
+    <td>18:10</td>
+    <td>19:19</td>
+  </tr>
+  <tr>
+    <td>14 Maret 2024</td>
+    <td>3 Ramadan 1445 H</td>
+    <td>04:33</td>
+    <td>04:43</td>
+    <td>05:55</td>
+    <td>06:22</td>
+    <td>12:06</td>
+    <td>15:12</td>
+    <td>18:10</td>
+    <td>19:18</td>
+  </tr>
+  <tr>
+    <td>15 Maret 2024</td>
+    <td>4 Ramadan 1445 H</td>
+    <td>04:33</td>
+    <td>04:43</td>
+    <td>05:55</td>
+    <td>06:22</td>
+    <td>12:05</td>
+    <td>15:12</td>
+    <td>18:09</td>
+    <td>19:18</td>
+  </tr>
+  <tr>
+    <td>16 Maret 2024</td>
+    <td>5 Ramadan 1445 H</td>
+    <td>04:33</td>
+    <td>04:43</td>
+    <td>05:55</td>
+    <td>06:22</td>
+    <td>12:05</td>
+    <td>15:13</td>
+    <td>18:09</td>
+    <td>19:17</td>
+  </tr>
+  <tr>
+    <td>17 Maret 2024</td>
+    <td>6 Ramadan 1445 H</td>
+    <td>04:33</td>
+    <td>04:43</td>
+    <td>05:54</td>
+    <td>06:22</td>
+    <td>12:05</td>
+    <td>15:13</td>
+    <td>18:08</td>
+    <td>19:17</td>
+  </tr>
+  <tr>
+    <td>18 Maret 2024</td>
+    <td>7 Ramadan 1445 H</td>
+    <td>04:33</td>
+    <td>04:43</td>
+    <td>05:54</td>
+    <td>06:21</td>
+    <td>12:05</td>
+    <td>15:13</td>
+    <td>18:08</td>
+    <td>19:16</td>
+  </tr>
+  <tr>
+    <td>19 Maret 2024</td>
+    <td>8 Ramadan 1445 H</td>
+    <td>04:33</td>
+    <td>04:43</td>
+    <td>05:54</td>
+    <td>06:21</td>
+    <td>12:04</td>
+    <td>15:13</td>
+    <td>18:07</td>
+    <td>19:16</td>
+  </tr>
+  <tr>
+    <td>20 Maret 2024</td>
+    <td>9 Ramadan 1445 H</td>
+    <td>04:33</td>
+    <td>04:43</td>
+    <td>05:54</td>
+    <td>06:21</td>
+    <td>12:04</td>
+    <td>15:14</td>
+    <td>18:07</td>
+    <td>19:15</td>
+  </tr>
+  <tr>
+    <td>21 Maret 2024</td>
+    <td>10 Ramadan 1445 H</td>
+    <td>04:33</td>
+    <td>04:43</td>
+    <td>05:54</td>
+    <td>06:21</td>
+    <td>12:04</td>
+    <td>15:14</td>
+    <td>18:07</td>
+    <td>19:15</td>
+  </tr>
+  <tr>
+    <td>22 Maret 2024</td>
+    <td>11 Ramadan 1445 H</td>
+    <td>04:32</td>
+    <td>04:42</td>
+    <td>05:54</td>
+    <td>06:21</td>
+    <td>12:04</td>
+    <td>15:14</td>
+    <td>18:06</td>
+    <td>19:15</td>
+  </tr>
+  <tr>
+    <td>23 Maret 2024</td>
+    <td>12 Ramadan 1445 H</td>
+    <td>04:32</td>
+    <td>04:42</td>
+    <td>05:54</td>
+    <td>06:21</td>
+    <td>12:03</td>
+    <td>15:14</td>
+    <td>18:06</td>
+    <td>19:14</td>
+  </tr>
+  <tr>
+    <td>24 Maret 2024</td>
+    <td>13 Ramadan 1445 H</td>
+    <td>04:32</td>
+    <td>04:42</td>
+    <td>05:54</td>
+    <td>06:21</td>
+    <td>12:03</td>
+    <td>15:14</td>
+    <td>18:05</td>
+    <td>19:13</td>
+  </tr>
+  <tr>
+    <td>25 Maret 2024</td>
+    <td>14 Ramadan 1445 H</td>
+    <td>04:32</td>
+    <td>04:42</td>
+    <td>05:53</td>
+    <td>06:21</td>
+    <td>12:03</td>
+    <td>15:14</td>
+    <td>18:05</td>
+    <td>19:13</td>
+  </tr>
+  <tr>
+    <td>26 Maret 2024</td>
+    <td>15 Ramadan 1445 H</td>
+    <td>04:32</td>
+    <td>04:42</td>
+    <td>05:53</td>
+    <td>06:20</td>
+    <td>12:02</td>
+    <td>15:14</td>
+    <td>18:04</td>
+    <td>19:12</td>
+  </tr>
+  <tr>
+    <td>27 Maret 2024</td>
+    <td>16 Ramadan 1445 H</td>
+    <td>04:32</td>
+    <td>04:42</td>
+    <td>05:53</td>
+    <td>06:20</td>
+    <td>12:02</td>
+    <td>15:15</td>
+    <td>18:04</td>
+    <td>19:12</td>
+  </tr>
+  <tr>
+    <td>28 Maret 2024</td>
+    <td>17 Ramadan 1445 H</td>
+    <td>04:32</td>
+    <td>04:42</td>
+    <td>05:53</td>
+    <td>06:20</td>
+    <td>12:02</td>
+    <td>15:15</td>
+    <td>18:03</td>
+    <td>19:12</td>
+  </tr>
+  <tr>
+    <td>29 Maret 2024</td>
+    <td>18 Ramadan 1445 H</td>
+    <td>04:31</td>
+    <td>04:41</td>
+    <td>05:53</td>
+    <td>06:20</td>
+    <td>12:01</td>
+    <td>15:15</td>
+    <td>18:03</td>
+    <td>19:11</td>
+  </tr>
+  <tr>
+    <td>30 Maret 2024</td>
+    <td>19 Ramadan 1445 H</td>
+    <td>04:31</td>
+    <td>04:41</td>
+    <td>05:53</td>
+    <td>06:20</td>
+    <td>12:01</td>
+    <td>15:15</td>
+    <td>18:02</td>
+    <td>19:11</td>
+  </tr>
+  <tr>
+    <td>31 Maret 2024</td>
+    <td>20 Ramadan 1445 H</td>
+    <td>04:31</td>
+    <td>04:41</td>
+    <td>05:53</td>
+    <td>06:20</td>
+    <td>12:01</td>
+    <td>15:15</td>
+    <td>18:02</td>
+    <td>19:10</td>
+  </tr>
+  <tr>
+    <td>1 April 2024</td>
+    <td>21 Ramadan 1445 H</td>
+    <td>04:31</td>
+    <td>04:41</td>
+    <td>05:53</td>
+    <td>06:20</td>
+    <td>12:00</td>
+    <td>15:15</td>
+    <td>18:01</td>
+    <td>19:10</td>
+  </tr>
+  <tr>
+    <td>2 April 2024</td>
+    <td>22 Ramadan 1445 H</td>
+    <td>04:31</td>
+    <td>04:41</td>
+    <td>05:52</td>
+    <td>06:20</td>
+    <td>12:00</td>
+    <td>15:15</td>
+    <td>18:01</td>
+    <td>19:09</td>
+  </tr>
+  <tr>
+    <td>3 April 2024</td>
+    <td>23 Ramadan 1445 H</td>
+    <td>04:31</td>
+    <td>04:41</td>
+    <td>05:52</td>
+    <td>06:19</td>
+    <td>12:00</td>
+    <td>15:15</td>
+    <td>18:00</td>
+    <td>19:09</td>
+  </tr>
+  <tr>
+    <td>4 April 2024</td>
+    <td>24 Ramadan 1445 H</td>
+    <td>04:30</td>
+    <td>04:40</td>
+    <td>05:52</td>
+    <td>06:19</td>
+    <td>12:00</td>
+    <td>15:15</td>
+    <td>18:00</td>
+    <td>19:09</td>
+  </tr>
+  <tr>
+    <td>5 April 2024</td>
+    <td>25 Ramadan 1445 H</td>
+    <td>04:30</td>
+    <td>04:40</td>
+    <td>05:52</td>
+    <td>06:19</td>
+    <td>11:59</td>
+    <td>15:15</td>
+    <td>17:59</td>
+    <td>19:08</td>
+  </tr>
+  <tr>
+    <td>6 April 2024</td>
+    <td>26 Ramadan 1445 H</td>
+    <td>04:30</td>
+    <td>04:40</td>
+    <td>05:52</td>
+    <td>06:19</td>
+    <td>11:59</td>
+    <td>15:15</td>
+    <td>17:59</td>
+    <td>19:08</td>
+  </tr>
+  <tr>
+    <td>7 April 2024</td>
+    <td>27 Ramadan 1445 H</td>
+    <td>04:30</td>
+    <td>04:40</td>
+    <td>05:52</td>
+    <td>06:19</td>
+    <td>11:59</td>
+    <td>15:15</td>
+    <td>17:59</td>
+    <td>19:07</td>
+  </tr>
+  <tr>
+    <td>8 April 2024</td>
+    <td>28 Ramadan 1445 H</td>
+    <td>04:30</td>
+    <td>04:40</td>
+    <td>05:52</td>
+    <td>06:19</td>
+    <td>11:58</td>
+    <td>15:15</td>
+    <td>17:58</td>
+    <td>19:07</td>
+  </tr>
+  <tr>
+    <td>9 April 2024</td>
+    <td>29 Ramadan 1445 H</td>
+    <td>04:30</td>
+    <td>04:40</td>
+    <td>05:52</td>
+    <td>06:19</td>
+    <td>11:58</td>
+    <td>15:15</td>
+    <td>17:58</td>
+    <td>19:07</td>
+  </tr>
+</table>
+</div>
+
+
+<div class="container">
+  <h1>Progress Puasa Kita</h1>
+  <div class="countdown" id="countdown"></div>
+<div id="progress-bar">
+  <div id="progress"></div>
+  <div id="progress-text-second" class="progress-text">0%</div>
+  <div id="progress-text-minute" class="progress-text">0%</div>
+</div>
+   
+    
+      
+      <br>
+      <div class="container">
+  <h1>Jadwal Hari Ini</h1>
+   <table>
+    <tr>
+      <th>Imsak</th>
+      <th>Subuh</th>
+      <th>Terbit</th>
+      <th>Duha</th>
+      <th>Dzuhur</th>
+      <th>Ashar</th>
+      <th>Maghrib</th>
+      <th>Isya</th>
+    </tr>
+    <tr>
+      <td id="imsak-countdown"></td>
+      <td id="subuh-countdown"></td>
+      <td id="terbit-countdown"></td>
+      <td id="duha-countdown"></td>
+      <td id="dzuhur-countdown"></td>
+      <td id="ashar-countdown"></td>
+      <td id="maghrib-countdown"></td>
+      <td id="isya-countdown"></td>
+    </tr>
+  </table>
+  <!-- Tambahkan tabel atau elemen lainnya sesuai kebutuhan -->
+</div>
+<br>
+
+</div>
+<div class="footer">by Aldi | 04:28 - 12/3/2024</div>
+<script>
+// Data jadwal puasa
+const jadwalPuasa = [
+  ["12 Maret 2024", "1 Ramadan 1445 H", "04:33", "04:43", "05:55", "06:22", "12:06", "15:12", "18:11", "19:19"],
+  ["13 Maret 2024", "2 Ramadan 1445 H", "04:33", "04:43", "05:55", "06:22", "12:06", "15:12", "18:10", "19:19"],
+  ["14 Maret 2024", "3 Ramadan 1445 H", "04:33", "04:43", "05:55", "06:22", "12:06", "15:12", "18:10", "19:18"],
+  ["15 Maret 2024", "4 Ramadan 1445 H", "04:33", "04:43", "05:55", "06:22", "12:05", "15:12", "18:09", "19:18"],
+  ["16 Maret 2024", "5 Ramadan 1445 H", "04:33", "04:43", "05:55", "06:22", "12:05", "15:13", "18:09", "19:17"],
+  ["17 Maret 2024", "6 Ramadan 1445 H", "04:33", "04:43", "05:54", "06:22", "12:05", "15:13", "18:08", "19:17"],
+  ["18 Maret 2024", "7 Ramadan 1445 H", "04:33", "04:43", "05:54", "06:21", "12:05", "15:13", "18:08", "19:16"],
+  ["19 Maret 2024", "8 Ramadan 1445 H", "04:33", "04:43", "05:54", "06:21", "12:04", "15:13", "18:07", "19:16"],
+  ["20 Maret 2024", "9 Ramadan 1445 H", "04:33", "04:43", "05:54", "06:21", "12:04", "15:14", "18:07", "19:15"],
+  ["21 Maret 2024", "10 Ramadan 1445 H", "04:33", "04:43", "05:54", "06:21", "12:04", "15:14", "18:07", "19:15"],
+  ["22 Maret 2024", "11 Ramadan 1445 H", "04:32", "04:42", "05:54", "06:21", "12:04", "15:14", "18:06", "19:15"],
+  ["23 Maret 2024", "12 Ramadan 1445 H", "04:32", "04:42", "05:54", "06:21", "12:03", "15:14", "18:06", "19:14"],
+  ["24 Maret 2024", "13 Ramadan 1445 H", "04:32", "04:42", "05:54", "06:21", "12:03", "15:14", "18:05", "19:13"],
+  ["25 Maret 2024", "14 Ramadan 1445 H", "04:32", "04:42", "05:53", "06:21", "12:03", "15:14", "18:05", "19:13"],
+  ["26 Maret 2024", "15 Ramadan 1445 H", "04:32", "04:42", "05:53", "06:20", "12:02", "15:14", "18:04", "19:12"],
+  ["27 Maret 2024", "16 Ramadan 1445 H", "04:32", "04:42", "05:53", "06:20", "12:02", "15:15", "18:04", "19:12"],
+  ["28 Maret 2024", "17 Ramadan 1445 H", "04:32", "04:42", "05:53", "06:20", "12:02", "15:15", "18:03", "19:12"],
+  ["29 Maret 2024", "18 Ramadan 1445 H", "04:31", "04:41", "05:53", "06:20", "12:01", "15:15", "18:03", "19:11"],
+  ["30 Maret 2024", "19 Ramadan 1445 H", "04:31", "04:41", "05:53", "06:20", "12:01", "15:15", "18:02", "19:11"],
+  ["31 Maret 2024", "20 Ramadan 1445 H", "04:31", "04:41", "05:53", "06:20", "12:01", "15:15", "18:02", "19:10"],
+  ["1 April 2024", "21 Ramadan 1445 H", "04:31", "04:41", "05:53", "06:20", "12:00", "15:15", "18:01", "19:10"],
+  ["2 April 2024", "22 Ramadan 1445 H", "04:31", "04:41", "05:52", "06:20", "12:00", "15:15", "18:01", "19:09"],
+  ["3 April 2024", "23 Ramadan 1445 H", "04:31", "04:41", "05:52", "06:19", "12:00", "15:15", "18:00", "19:09"],
+  ["4 April 2024", "24 Ramadan 1445 H", "04:30", "04:40", "05:52", "06:19", "12:00", "15:15", "18:00", "19:09"],
+  ["5 April 2024", "25 Ramadan 1445 H", "04:30", "04:40", "05:52", "06:19", "11:59", "15:15", "17:59", "19:08"],
+  ["6 April 2024", "26 Ramadan 1445 H", "04:30", "04:40", "05:52", "06:19", "11:59", "15:15", "17:59", "19:08"],
+  ["7 April 2024", "27 Ramadan 1445 H", "04:30", "04:40", "05:52", "06:19", "11:59", "15:15", "17:59", "19:07"],
+  ["8 April 2024", "28 Ramadan 1445 H", "04:30", "04:40", "05:52", "06:19", "11:59", "15:15", "17:58", "19:07"],
+  ["9 April 2024", "29 Ramadan 1445 H", "04:30", "04:40", "05:52", "06:19", "11:58", "15:15", "17:58", "19:07"],
+];
+
+// Mendapatkan tanggal hari ini dalam format "DD MMMM YYYY"
+const todayDate = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
+// Mencari baris yang sesuai dengan tanggal hari ini dan menyorotnya
+window.onload = function () {
+  const jadwalTable = document.getElementById('jadwalTable');
+  jadwalPuasa.forEach((jadwal, index) => {
+    if (jadwal[0] === todayDate) {
+      jadwalTable.rows[index + 1].classList.add('current'); // Baris pertama adalah baris judul, sehingga kita tambahkan 1
+    }
+  });
+};
+
+    // Tanggal awal Ramadan
+  var startDate = new Date('2024-03-12');
+  // Tanggal hari ini
+  var currentDate = new Date();
+  // Tanggal akhir Ramadan
+  var endDate = new Date('2024-04-09');
+
+  // Menghitung selisih hari antara dua tanggal
+  function dateDiffInDays(a, b) {
+    const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+    const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+    const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+    return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+  }
+
+  // Menghitung berapa hari yang telah berlalu sejak awal Ramadan
+  var daysPassed = dateDiffInDays(startDate, currentDate);
+  // Menghitung berapa hari yang tersisa hingga akhir Ramadan
+  var daysLeft = dateDiffInDays(currentDate, endDate);
+
+  // Menampilkan hasil penghitungan
+  document.getElementById('countdown').innerHTML = `Alhamdulillah udah ${daysPassed} Hari kita Puasa. Tinggal ${daysLeft} hari lagi sampai Lebaran.`;
+
+
+// Menghitung selisih hari antara dua tanggal
+function dateDiffInDays(a, b) {
+  const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+  return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+}
+
+// Calculate total time (in seconds) between start and end of fasting
+var startTime = new Date('March 12, 2024 04:33:00').getTime();
+var endTime = new Date('April 9, 2024 17:58:00').getTime();
+var totalTime = endTime - startTime;
+
+// Update progress bar every second
+var progressBar = document.getElementById("progress");
+var progressTextSecond = document.getElementById("progress-text-second");
+var progressTextMinute = document.getElementById("progress-text-minute");
+var lastMinuteUpdate = -1;
+
+setInterval(function() {
+  var currentTime = new Date().getTime();
+  var elapsedTime = currentTime - startTime;
+  var percentage = (elapsedTime / totalTime) * 100;
+
+  // Update progress bar width and text for seconds
+  progressBar.style.width = percentage + "%";
+  progressTextSecond.innerHTML = percentage.toFixed(5) + "%"; // Four decimal places for seconds
+
+  // Update text for minutes only if the minute has changed
+  var currentMinute = Math.floor(elapsedTime / 60000);
+  if (currentMinute !== lastMinuteUpdate) {
+    lastMinuteUpdate = currentMinute;
+    progressTextMinute.innerHTML = percentage.toFixed(2) + "%"; // Two decimal places for minutes
+  }
+
+  // Stop updating when the progress bar reaches 100%
+  if (percentage >= 100) {
+    clearInterval(interval);
+    progressTextSecond.innerHTML = "100%";
+    progressTextMinute.innerHTML = "100%";
+  }
+}, 1000);
+
+
+// Fungsi untuk mengambil data waktu shalat berdasarkan tanggal dari data jadwalPuasa
+function getPrayerTimesByDate(date) {
+    const dateString = date.toLocaleDateString('id-ID');
+    const prayerTimes = jadwalPuasa.find(item => new Date(item[0]).toLocaleDateString('id-ID') === dateString);
+    if (prayerTimes) {
+        return {
+            imsak: prayerTimes[2],
+            subuh: prayerTimes[3],
+            terbit: prayerTimes[4],
+            duha: prayerTimes[5],
+            dzuhur: prayerTimes[6],
+            ashar: prayerTimes[7],
+            maghrib: prayerTimes[8],
+            isya: prayerTimes[9],
+        };
+    } else {
+        return null;
+    }
+}
+
+// Fungsi untuk memperbarui waktu shalat setiap detik berdasarkan tanggal
+function updatePrayerTimesByDate(date) {
+    const prayerTimes = getPrayerTimesByDate(date);
+    if (prayerTimes) {
+        const now = new Date();
+        for (const [key, timeString] of Object.entries(prayerTimes)) {
+            const timeParts = timeString.split(':');
+            const time = new Date(now.getFullYear(), now.getMonth(), now.getDate(), ...timeParts);
+
+            // Periksa apakah waktu sholat ini adalah untuk tanggal hari ini atau untuk tanggal berikutnya
+            if (time > now) {
+                let delta = time - now;
+                if (delta < 0) {
+                    delta += 24 * 60 * 60 * 1000; // Tambahkan satu hari jika waktu sudah lewat
+                }
+                const hours = Math.floor(delta / 1000 / 60 / 60);
+                const minutes = Math.floor(delta / 1000 / 60) % 60;
+                const seconds = Math.floor(delta / 1000) % 60;
+
+                // Update countdown text
+                const countdownElement = document.getElementById(key + '-countdown');
+                if (countdownElement) {
+                    countdownElement.textContent = `${hours} Jam ${minutes} Menit ${seconds} Detik`;
+                }
+            }
+        }
+    } else {
+        console.error('Data waktu shalat tidak ditemukan untuk tanggal ini.');
+    }
+}
+
+
+// Memanggil fungsi updatePrayerTimesByDate setiap detik
+setInterval(() => {
+    const now = new Date();
+    updatePrayerTimesByDate(now);
+}, 1000);
+
+var direction = 1; // 1 for right, -1 for left
+var movementInterval;
+
+function toggleMovement() {
+  clearInterval(movementInterval);
+  movementInterval = setInterval(moveBox, 10);
+}
+
+function moveBox() {
+  var box = document.querySelector('.kotak');
+  var boxPosition = parseFloat(getComputedStyle(box).left);
+  var screenWidth = window.innerWidth;
+  
+  if (direction === 1) {
+    box.style.left = (boxPosition + 1) + 'px';
+  } else {
+    box.style.left = (boxPosition - 1) + 'px';
+  }
+  
+  if (boxPosition >= screenWidth - 200) {
+    direction = -1;
+  } else if (boxPosition <= 0) {
+    direction = 1;
+  }
+}
+</script>
+
+</body>
+</html>
