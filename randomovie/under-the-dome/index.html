@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trailer Film - Under the Dome</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body, html {
+            margin: 5px;
+            padding: 6px;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+        }
+        .container {
+            position: relative;
+            height: 100%;
+        }
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 30px;
+            height: 90vh;
+        }
+        .sidenav a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .sidenav .dropdown-btn {
+            padding: 10px 20px;
+            font-size: 20px;
+            color: #818181;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            width: 100%;
+            text-align: left;
+            outline: none;
+        }
+        .sidenav .dropdown-btn:hover {
+            background-color: #333;
+            color: #f1f1f1;
+        }
+        .sidenav .dropdown-container {
+            display: none;
+            background-color: #111;
+            padding-left: 20px;
+        }
+        .sidenav .submenu a {
+            padding: 5px 0px 5px 20px;
+            font-size: 18px;
+            color: #818181;
+            display: block;
+        }
+        .sidenav .submenu a:hover {
+            color: #f1f1f1;
+        }
+
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            overflow: auto;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .description {
+            display: none;
+            padding: 20px;
+        }
+        .show {
+            display: block;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .show-button, .hide-button {
+            background-color: #fff;
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hide-button {
+            display: none;
+        }
+        .openbtn {
+            background-color: transparent;
+            opacity: 0.8;
+            color: lime;
+            cursor: pointer;
+            padding: 10px 15px;
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+            border: none;
+            outline: none;
+            z-index: 3;
+        }
+        .openbtn:hover {
+            background-color: #444;
+            opacity: 1;
+        }
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+      
+    .thumbnails-container {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: black;
+        justify-content: center;
+    }
+    .thumbnail {
+        width: 200px;
+        margin: 10px;
+        text-align: center;
+        z-index: 1;
+        box-shadow: 0 2px 4px rgba(0, 255, 0, 0.5);
+        transition: transform 0.5s, background-color 1s;
+        background-color: white;
+        border: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #000;
+    }
+      .thumbnail:hover {
+        transform: translateY(-5px);
+        background-color: black;
+        color: cyan;
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+        transition: box-shadow 0.3s ease; 
+}
+    .thumbnail img {
+        width: 90%;
+        height: auto;
+        border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+<!-- Halaman Utama -->
+<div id="home" class="page" style="display: block;">
+    <div class="container">
+        <h2>Pilih Season dulu Kak</h2>
+        <div class="thumbnails-container">
+            <!-- Thumbnail untuk memilih Season 1 -->
+            <a href="#" onclick="showPage('ss1');" class="thumbnail">
+                <img src="S1.jpg" alt="Season 1">
+                <p>Season 1</p>
+            </a>
+
+            <a href="#" onclick="showPage('ss2');" class="thumbnail">
+                <img src="S2.jpg" alt="Season 2">
+                <p>Season 2</p>
+            </a>
+          
+          <a href="#" onclick="showPage('ss3');" class="thumbnail">
+                <img src="S3.jpg" alt="Season 3">
+                <p>Season 3</p>
+            </a>
+
+            <!-- Tambahkan season lainnya sesuai kebutuhan -->
+        </div>
+    </div>
+</div>
+
+<!-- Halaman Season 1 -->
+<div id="ss1" class="page" style="display: none;">
+    <div class="container">
+        <h2>Pilih Episode - Season 1</h2>
+        <div class="thumbnails-container">
+            <!-- Deskripsi untuk memilih Episode 1 di Season 1 -->
+            <a href="#" onclick="showPage('1ep1');" class="thumbnail">
+                <h1>Episode 1</h1>
+                <p>Pilot</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 2 di Season 1 -->
+            <a href="#" onclick="showPage('1ep2');" class="thumbnail">
+                <h1>Episode 2</h1>
+                <p>The Fire</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 3 di Season 1 -->
+            <a href="#" onclick="showPage('1ep3');" class="thumbnail">
+                <h1>Episode 3</h1>
+                <p>Manhunt</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 4 di Season 1 -->
+            <a href="#" onclick="showPage('1ep4');" class="thumbnail">
+                <h1>Episode 4</h1>
+                <p>Outbreak</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 5 di Season 1 -->
+            <a href="#" onclick="showPage('1ep5');" class="thumbnail">
+                <h1>Episode 5</h1>
+                <p>Blue on Blue</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 6 di Season 1 -->
+            <a href="#" onclick="showPage('1ep6');" class="thumbnail">
+                <h1>Episode 6</h1>
+                <p>The Endless Thirst</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 7 di Season 1 -->
+            <a href="#" onclick="showPage('1ep7');" class="thumbnail">
+                <h1>Episode 7</h1>
+                <p>Imperfect Circles</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 8 di Season 1 -->
+            <a href="#" onclick="showPage('1ep8');" class="thumbnail">
+                <h1>Episode 8</h1>
+                <p>Thicker Than Water</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 9 di Season 1 -->
+            <a href="#" onclick="showPage('1ep9');" class="thumbnail">
+                <h1>Episode 9</h1>
+                <p>The Fourth Hand</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 10 di Season 1 -->
+            <a href="#" onclick="showPage('1ep10');" class="thumbnail">
+                <h1>Episode 10</h1>
+                <p>Let The Games Begin</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 11 di Season 1 -->
+            <a href="#" onclick="showPage('1ep11');" class="thumbnail">
+                <h1>Episode 11</h1>
+                <p>Speak of the Devil</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 12 di Season 1 -->
+            <a href="#" onclick="showPage('1ep12');" class="thumbnail">
+                <h1>Episode 12</h1>
+                <p>Exigent Circumstances</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 13 di Season 1 -->
+            <a href="#" onclick="showPage('1ep13');" class="thumbnail">
+                <h1>Episode 13</h1>
+                <p>Curtains</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Halaman Season 2 -->
+<div id="ss2" class="page" style="display: none;">
+    <div class="container">
+        <h2>Pilih Episode - Season 2</h2>
+        <div class="thumbnails-container">
+            <!-- Deskripsi untuk memilih Episode 1 di Season 2 -->
+            <a href="#" onclick="showPage('2ep1');" class="thumbnail">
+                <h1>Episode 1</h1>
+                <p>Heads Will Roll</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 2 di Season 2 -->
+            <a href="#" onclick="showPage('2ep2');" class="thumbnail">
+                <h1>Episode 2</h1>
+                <p>Infestation</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 3 di Season 2 -->
+            <a href="#" onclick="showPage('2ep3');" class="thumbnail">
+                <h1>Episode 3</h1>
+                <p>Force Majeure</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 4 di Season 2 -->
+            <a href="#" onclick="showPage('2ep4');" class="thumbnail">
+                <h1>Episode 4</h1>
+                <p>Revelation</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 5 di Season 2 -->
+            <a href="#" onclick="showPage('2ep5');" class="thumbnail">
+                <h1>Episode 5</h1>
+                <p>Reconciliation</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 6 di Season 2 -->
+            <a href="#" onclick="showPage('2ep6');" class="thumbnail">
+                <h1>Episode 6</h1>
+                <p>In the Dark</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 7 di Season 2 -->
+            <a href="#" onclick="showPage('2ep7');" class="thumbnail">
+                <h1>Episode 7</h1>
+                <p>Going Home</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 8 di Season 2 -->
+            <a href="#" onclick="showPage('2ep8');" class="thumbnail">
+                <h1>Episode 8</h1>
+                <p>Awakening</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 9 di Season 2 -->
+            <a href="#" onclick="showPage('2ep9');" class="thumbnail">
+                <h1>Episode 9</h1>
+                <p>The Red Door</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 10 di Season 2 -->
+            <a href="#" onclick="showPage('2ep10');" class="thumbnail">
+                <h1>Episode 10</h1>
+                <p>The Fall</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 11 di Season 2 -->
+            <a href="#" onclick="showPage('2ep11');" class="thumbnail">
+                <h1>Episode 11</h1>
+                <p>Speak of the Devil</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 12 di Season 2 -->
+            <a href="#" onclick="showPage('2ep12');" class="thumbnail">
+                <h1>Episode 12</h1>
+                <p>Exigent Circumstances</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 13 di Season 2 -->
+            <a href="#" onclick="showPage('2ep13');" class="thumbnail">
+                <h1>Episode 13</h1>
+                <p>Go Now</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Halaman Season 3 -->
+<div id="ss3" class="page" style="display: none;">
+    <div class="container">
+        <h2>Pilih Episode - Season 3</h2>
+        <div class="thumbnails-container">
+            <!-- Deskripsi untuk memilih Episode 1 di Season 3 -->
+            <a href="#" onclick="showPage('3ep1');" class="thumbnail">
+                <h1>Episode 1</h1>
+                <p>Move On</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 2 di Season 3 -->
+            <a href="#" onclick="showPage('3ep2');" class="thumbnail">
+                <h1>Episode 2</h1>
+                <p>But I'm Not</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 3 di Season 3 -->
+            <a href="#" onclick="showPage('3ep3');" class="thumbnail">
+                <h1>Episode 3</h1>
+                <p>Redux</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 4 di Season 3 -->
+            <a href="#" onclick="showPage('3ep4');" class="thumbnail">
+                <h1>Episode 4</h1>
+                <p>The Kinship</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 5 di Season 3 -->
+            <a href="#" onclick="showPage('3ep5');" class="thumbnail">
+                <h1>Episode 5</h1>
+                <p>Alaska</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 6 di Season 3 -->
+            <a href="#" onclick="showPage('3ep6');" class="thumbnail">
+                <h1>Episode 6</h1>
+                <p>In The Dark</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 7 di Season 3 -->
+            <a href="#" onclick="showPage('3ep7');" class="thumbnail">
+                <h1>Episode 7</h1>
+                <p>Ejecta</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 8 di Season 3 -->
+            <a href="#" onclick="showPage('3ep8');" class="thumbnail">
+                <h1>Episode 8</h1>
+                <p>Breaking Point</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 9 di Season 3 -->
+            <a href="#" onclick="showPage('3ep9');" class="thumbnail">
+                <h1>Episode 9</h1>
+                <p>Plan B</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 10 di Season 3 -->
+            <a href="#" onclick="showPage('3ep10');" class="thumbnail">
+                <h1>Episode 10</h1>
+                <p>Legacy</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 11 di Season 3 -->
+            <a href="#" onclick="showPage('3ep11');" class="thumbnail">
+                <h1>Episode 11</h1>
+                <p>Love is a Battlefield</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 12 di Season 3 -->
+            <a href="#" onclick="showPage('3ep12');" class="thumbnail">
+                <h1>Episode 12</h1>
+                <p>Incandescence</p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 13 di Season 3 -->
+            <a href="#" onclick="showPage('3ep13');" class="thumbnail">
+                <h1>Episode 13</h1>
+                <p>The Enemy Within</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+  
+    <div class="container">
+        <button class="openbtn" onclick="openNav()">Pilih Episode</button>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <button class="dropdown-btn" onclick="toggleDropdown('submenu-season1')">Season 1
+                <span>&#9660;</span>
+            </button>
+            <div id="submenu-season1" class="dropdown-container">
+                <a href="#" onclick="showPage('1ep1')">EP 1</a>
+                <a href="#" onclick="showPage('1ep2')">EP 2</a>
+                <a href="#" onclick="showPage('1ep3')">EP 3</a>
+                <a href="#" onclick="showPage('1ep4')">EP 4</a>
+                <a href="#" onclick="showPage('1ep5')">EP 5</a>
+                <a href="#" onclick="showPage('1ep6')">EP 6</a>
+                <a href="#" onclick="showPage('1ep7')">EP 7</a>
+                <a href="#" onclick="showPage('1ep8')">EP 8</a>
+                <a href="#" onclick="showPage('1ep9')">EP 9</a>
+                <a href="#" onclick="showPage('1ep10')">EP 10</a>
+                <a href="#" onclick="showPage('1ep11')">EP 11</a>
+                <a href="#" onclick="showPage('1ep12')">EP 12</a>
+                <a href="#" onclick="showPage('1ep13')">EP 13</a>
+            </div>
+            
+            <button class="dropdown-btn" onclick="toggleDropdown('submenu-season2')">Season 2
+                <span>&#9660;</span>
+            </button>
+            <div id="submenu-season2" class="dropdown-container">
+                <a href="#" onclick="showPage('2ep1')">EP 1</a>
+                <a href="#" onclick="showPage('2ep2')">EP 2</a>
+                <a href="#" onclick="showPage('2ep3')">EP 3</a>
+                <a href="#" onclick="showPage('2ep4')">EP 4</a>
+                <a href="#" onclick="showPage('2ep5')">EP 5</a>
+                <a href="#" onclick="showPage('2ep6')">EP 6</a>
+                <a href="#" onclick="showPage('2ep7')">EP 7</a>
+                <a href="#" onclick="showPage('2ep8')">EP 8</a>
+                <a href="#" onclick="showPage('2ep9')">EP 9</a>
+                <a href="#" onclick="showPage('2ep10')">EP 10</a>
+                <a href="#" onclick="showPage('2ep11')">EP 11</a>
+                <a href="#" onclick="showPage('2ep12')">EP 12</a>
+                <a href="#" onclick="showPage('2ep13')">EP 13</a>
+            </div>
+            
+            <button class="dropdown-btn" onclick="toggleDropdown('submenu-season3')">Season 3
+                <span>&#9660;</span>
+            </button>
+            <div id="submenu-season3" class="dropdown-container">
+                <a href="#" onclick="showPage('3ep1')">EP 1</a>
+                <a href="#" onclick="showPage('3ep2')">EP 2</a>
+                <a href="#" onclick="showPage('3ep3')">EP 3</a>
+                <a href="#" onclick="showPage('3ep4')">EP 4</a>
+                <a href="#" onclick="showPage('3ep5')">EP 5</a>
+                <a href="#" onclick="showPage('3ep6')">EP 6</a>
+                <a href="#" onclick="showPage('3ep7')">EP 7</a>
+                <a href="#" onclick="showPage('3ep8')">EP 8</a>
+                <a href="#" onclick="showPage('3ep9')">EP 9</a>
+                <a href="#" onclick="showPage('3ep10')">EP 10</a>
+                <a href="#" onclick="showPage('3ep11')">EP 11</a>
+                <a href="#" onclick="showPage('3ep12')">EP 12</a>
+                <a href="#" onclick="showPage('3ep13')">EP 13</a>
+            </div>
+            
+        </div>
+    
+    <!--SEASON 1 PAGE-->
+        <div id="1ep1" class="page">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/1" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h2>Under The Dome - Season 1</h2>
+                    <p>Episode 1 - Pilot</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep1')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep1')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep2" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/2" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h2>Under The Dome - Season 1</h2>
+                    <p>Episode 2 - The Fire</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep2')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep2')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep3" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/3" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h2>Under The Dome - Season 1</h2>
+                    <p>Episode 3 - Manhunt</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep3')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep3')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep4" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/4" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h2>Under The Dome - Season 1</h2>
+                    <p>Episode 4 - Outbreak</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep4')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep4')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep5" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/5" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h2>Under The Dome - Season 1</h2>
+                    <p>Episode 5 - Blue on Blue</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep5')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep5')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep6" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/6" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h2>Under The Dome - Season 1</h2>
+                    <p>Episode 6 - The Endless Thirst</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep6')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep6')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep7" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/7" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h2>Under The Dome - Season 1</h2>
+                    <p>Episode 7 - Imperfect Circles</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep7')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep7')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="1ep8" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/8" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                <h2>Under The Dome - Season 1</h2>
+                <p>Episode 8 - Thicker Than Water</p>
+            </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep8')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep8')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="1ep9" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/9" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                <h2>Under The Dome - Season 1</h2>
+                <p>Episode 9 - The Fourth Hand</p>
+            </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep9')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep9')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="1ep10" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/10" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                <h2>Under The Dome - Season 1</h2>
+                <p>Episode 10 - Let the Games Begin</p>
+            </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep10')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep10')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="1ep11" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/11" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                <h2>Under The Dome - Season 1</h2>
+                <p>Episode 11 - Speak of the Devil</p>
+            </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep11')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep11')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="1ep12" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/12" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                <h2>Under The Dome - Season 1</h2>
+                <p>Episode 12 - Exigent Circumstances</p>
+            </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep12')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep12')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="1ep13" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/tt1553656/1/13" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                <h2>Under The Dome - Season 1</h2>
+                <p>Episode 13 - Curtains</p>
+            </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep13')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep13')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+<!--SEASON 2 PAGE-->
+<div id="2ep1" class="page">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/1" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 1 - Heads Will Roll</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep1')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep1')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep2" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/2" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 2 - Infestation</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep2')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep2')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep3" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/3" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 3 - Revelation</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep3')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep3')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep4" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/4" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 4 - Revelation</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep4')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep4')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep4" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/4" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 4 - Revelation</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep4')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep4')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep5" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/5" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 5 - Reconciliation</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep5')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep5')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep6" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/6" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 6 - In the Dark</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep6')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep6')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep7" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/7" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 7 - Going Home</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep7')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep7')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep8" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/8" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 8 - Awakening</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep8')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep8')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep9" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/9" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 9 - The Red Door</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep9')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep9')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep10" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/10" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 10 - The Fall</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep10')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep10')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep11" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/11" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 11 - Black Ice</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep11')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep11')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep12" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/12" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 12 - Turn</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep12')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep12')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="2ep13" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/2/13" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 2</h2>
+            <p>Episode 13 - Go Now</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('2ep13')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('2ep13')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<!--SEASON 3 PAGE-->
+<div id="3ep1" class="page">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/1" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 1 & 2 - Move On / But I'm Not</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep1')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep1')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep2" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/1" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 1 & 2</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep2')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep2')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep3" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/3" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 3 - Redux</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep3')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep3')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep4" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/4" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 4 - The Kinship</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep4')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep4')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep5" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/5" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 5 - Alaska</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep5')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep5')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep6" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/6" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 6 - Like a Switch</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep6')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep6')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep7" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/7" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 7 - Ejecta</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep7')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep7')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep8" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/8" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 8 - Breaking Point</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep8')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep8')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep9" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/9" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 9 - Plan B</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep9')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep9')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep10" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/10" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 10 - Legacy</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep10')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep10')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep11" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/11" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 11 - Love is a Battlefield</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep11')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep11')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep12" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/12" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 12 - Incandescence</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep12')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep12')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="3ep13" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/tt1553656/3/13" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Under The Dome - Season 3</h2>
+            <p>Episode 13 - The Enemy Within</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('3ep13')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('3ep13')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+    function toggleDescription(pageId) {
+        var descriptionSection = document.getElementById(pageId).querySelector('.description');
+        var showButton = document.getElementById(pageId).querySelector('.show-button');
+        var hideButton = document.getElementById(pageId).querySelector('.hide-button');
+
+        descriptionSection.classList.toggle('show');
+        showButton.style.display = descriptionSection.classList.contains('show') ? 'none' : 'block';
+        hideButton.style.display = descriptionSection.classList.contains('show') ? 'block' : 'none';
+    }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function showPage(pageId) {
+            var pages = document.querySelectorAll('.page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+            document.getElementById(pageId).style.display = 'block';
+            closeNav();
+        }
+
+        function toggleDropdown(submenuId) {
+            var dropdownContainer = document.getElementById(submenuId);
+            dropdownContainer.style.display = dropdownContainer.style.display === "block" ? "none" : "block";
+        }
+        // Mencegah klik kanan
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    alert('✋');
+});
+
+// Mencegah kombinasi tombol keyboard (CTRL+C, CTRL+X, CTRL+V, CTRL+SHIFT+V)
+document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey && (e.keyCode === 67 || e.keyCode === 88 || e.keyCode === 86)) || (e.ctrlKey && e.shiftKey && (e.keyCode === 86))) {
+        e.preventDefault();
+        alert('✋');
+    } else if (e.ctrlKey) {
+        e.preventDefault();
+        alert('✋');
+    }
+});
+
+// Mencegah tombol "i" pada keyboard
+document.addEventListener('keydown', function(e) {
+    if (e.keyCode === 73) { // Untuk huruf kecil "i"
+        e.preventDefault();
+        alert('✋');
+    } else if (e.keyCode === 105) { // Untuk huruf besar "I"
+        e.preventDefault();
+        alert('✋');
+    }
+});
+
+// Mendeteksi saat teks disalin
+document.addEventListener('copy', function(e) {
+    e.clipboardData.setData('text/plain', '✋');
+    e.preventDefault();
+    alert('✋');
+});
+    </script>
+</body>
+</html>
