@@ -1,0 +1,4 @@
+
+
+# Handle 404 errors
+ErrorDocument 404 /randomovie/belum-ada.html

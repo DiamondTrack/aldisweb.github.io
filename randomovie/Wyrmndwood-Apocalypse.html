@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trailer Film - Wyrmndwood: Apocalypse</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .video-container {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .description {
+            display: none;
+            padding: 20px;
+        }
+        .show {
+            display: block;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .show-button, .hide-button {
+            background-color: #fff;
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hide-button {
+            display: none;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 10px;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/movie/879957" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Wyrmndwood: Apocalypse</h2>
+            <p>Seorang tentara yang bekerja untuk organisasi misterius yang menangkap manusia yang masih hidup untuk diubah menjadi eksperimen biologis. Namun, keadaan berubah ketika ia bertemu seorang wanita yang memintanya untuk membantu menyelamatkan saudaranya dari eksperimen organisasi tersebut.
+                Selama perjalanan, tentara tersebut mengalami berbagai tantangan, termasuk melawan zombie dan menghindari bahaya dari manusia lain yang berusaha bertahan hidup. Film ini menampilkan adegan aksi intens, elemen horor, dan ketegangan saat tokoh utama berusaha menyelamatkan diri dan orang-orang yang ia temui dari ancaman besar di dunia pasca-apokaliptik.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription()">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription()">Tutup Deskripsi</button>
+        </div>
+        <div class="copyright">
+            &copy; 2024 Wyrmndwood: Apocalypse. All rights reserved.
+        </div>
+    </div>
+
+    <script src="scripts/movie.js"></script>
+</body>
+</html>

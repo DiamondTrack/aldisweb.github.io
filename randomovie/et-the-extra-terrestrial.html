@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trailer Film - E.T. the Extra-Terrestrial</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .video-container {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .description {
+            display: none;
+            padding: 20px;
+        }
+        .show {
+            display: block;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .show-button, .hide-button {
+            background-color: #fff;
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hide-button {
+            display: none;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 10px;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/movie/601" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>E.T. the Extra-Terrestrial</h2>
+            <p>E.T., makhluk luar angkasa yang terdampar di Bumi, tertinggal oleh rombongannya setelah mereka mengunjungi planet ini untuk melakukan penelitian. E.T. kemudian menemukan tempat berlindung di sebuah rumah di pinggiran kota California. Di sana, Elliott menemukan E.T. dan menyembunyikannya di rumahnya.
+                Elliott dan E.T. mengembangkan ikatan persahabatan yang kuat. Elliott berusaha membantu E.T. pulang ke planet asalnya. Mereka bekerja sama untuk membangun alat komunikasi yang memungkinkan E.T. mengirim sinyal ke rombongannya. Sementara itu, pemerintah dan ilmuwan mengejar E.T. untuk menangkapnya.
+                Sepanjang film, Elliott, bersama dengan saudara-saudaranya dan teman-temannya, mencoba melindungi E.T. dari pemerintah dan membantunya pulang. 
+            </p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription()">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription()">Tutup Deskripsi</button>
+        </div>
+        <div class="copyright">
+            &copy; 2024 E.T. the Extra-Terrestrial. All rights reserved.
+        </div>
+    </div>
+
+    <script src="scripts/movie.js"></script>
+</body>
+</html>

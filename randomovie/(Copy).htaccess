@@ -1,0 +1,10 @@
+# Disable directory browsing
+Options -Indexes
+
+# Redirect semua permintaan ke maintenance.html
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !/maintenance.html$
+RewriteRule ^(.*)$ /randomovie/maintenance.html [L]
+
+# Handle 404 errors
+ErrorDocument 404 /randomovie/maintenance.html

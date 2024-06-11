@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminator: Dark Fate (2019)</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .video-container {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .description {
+            display: none;
+            padding: 20px;
+        }
+        .show {
+            display: block;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .show-button, .hide-button {
+            background-color: #fff;
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hide-button {
+            display: none;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 10px;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/movie/290859" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Terminator: Dark Fate (2019)</h2>
+            <p>
+                Latar waktu Dark Fate diambil 2 dekade setelah Sarah Connor mencegah Judment Day, mengubah masa depan, dan menulis ulang nasib umat manusia. Dani Ramos (Natalia Reyes) menjalani kehidupan sederhana di Meksiko bersama saudara lelakinya (Diego Boneta) dan ayahnya. Hidup Dani berjalan baik hingga datang seorang Terminator seri Rev-9 (Gabriel Luna) yang sangat canggih dan datang dari masa depan untuk membunuhnya. Kelangsungan hidup Dani bergantung pada kekuatannya bersama Grace (Mackenzie Davis), Grace, seorang manusia super yang juga dikirim dari masa depan dan seorang Sarah Connor (Linda Hamilton). Keduanya membantu Dani melawan Terminator itu. Rev 9 dikirim ke masa lalu untuk menghentikan manusia bangkit dan mengambil alih Skynet. Rev 9 tampak seperti kombinasi dari T-800 dan T-1000, seperti yang terlihat dalam The
+            </p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription()">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription()">Tutup Deskripsi</button>
+        </div>
+        <div class="copyright">
+            &copy; 2024 Terminator: Dark Fate (2019). All rights reserved.
+        </div>
+    </div>
+
+    <script src="scripts/movie.js"></script>
+</body>
+</html>

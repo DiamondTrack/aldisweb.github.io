@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trailer Film - Jaws</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body, html {
+            margin: 5px;
+            padding: 6px;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+        }
+        .container {
+            position: relative;
+            height: 100%;
+        }
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 30px;
+            height: 90vh;
+        }
+        .sidenav a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .sidenav .dropdown-btn {
+            padding: 10px 20px;
+            font-size: 20px;
+            color: #818181;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            width: 100%;
+            text-align: left;
+            outline: none;
+        }
+        .sidenav .dropdown-btn:hover {
+            background-color: #333;
+            color: #f1f1f1;
+        }
+        .sidenav .dropdown-container {
+            display: none;
+            background-color: #111;
+            padding-left: 20px;
+        }
+        .sidenav .submenu a {
+            padding: 5px 0px 5px 20px;
+            font-size: 18px;
+            color: #818181;
+            display: block;
+        }
+        .sidenav .submenu a:hover {
+            color: #f1f1f1;
+        }
+
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            overflow: auto;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .description {
+            display: none;
+            padding: 20px;
+        }
+        .show {
+            display: block;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .show-button, .hide-button {
+            background-color: #fff;
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hide-button {
+            display: none;
+        }
+        .openbtn {
+            background-color: transparent;
+            opacity: 0.8;
+            color: lime;
+            cursor: pointer;
+            padding: 10px 15px;
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+            border: none;
+            outline: none;
+            z-index: 3;
+        }
+        .openbtn:hover {
+            background-color: #444;
+            opacity: 1;
+        }
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+      
+    .thumbnails-container {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: black;
+        justify-content: center;
+    }
+    .thumbnail {
+        width: 200px;
+        margin: 10px;
+        text-align: center;
+        z-index: 1;
+        box-shadow: 0 2px 4px rgba(0, 255, 0, 0.5);
+        transition: transform 0.5s, background-color 1s;
+        background-color: white;
+        border: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #000;
+    }
+      .thumbnail:hover {
+        transform: translateY(-5px);
+        background-color: black;
+        color: cyan;
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+        transition: box-shadow 0.3s ease; 
+}
+    .thumbnail img {
+        width: 90%;
+        height: auto;
+        border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+<!-- Halaman Utama -->
+<div id="home" class="page" style="display: block;">
+    <div class="container">
+        <h2>Pilih dulu kak</h2>
+        <div class="thumbnails-container">
+            <!-- Thumbnail untuk memilih Season 1 -->
+            <a href="#jaws" onclick="showPage('jaws');" class="thumbnail">
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lxM6kqilAdpdhqUl2biYp5frUxE.jpg" alt="Jaws">
+                <p>Jaws</p>
+            </a>
+
+            <a href="#jaws2" onclick="showPage('jaws2');" class="thumbnail">
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/cN3ijEwsn4kBaRuHfcJpAQJbeWe.jpg" alt="Jaws 2">
+                <p>Jaws 2</p>
+            </a>
+        </div>
+    </div>
+</div>
+    
+    <!--SEASON 1 PAGE-->
+        <div id="jaws" class="page">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/movie/578" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h2>Jaws</h2>
+                    <p>upaya seorang kepala polisi di pulau fiksi Amity Island, seorang ahli biologi kelautan, dan seorang pemburu hiu yang berpengalaman untuk melacak dan membunuh seekor hiu putih besar yang telah menyerang dan membunuh beberapa orang di perairan sekitar pulau.
+                        Setelah serangkaian serangan mematikan, ketiganya berlayar di kapal Quint, Orca, untuk mencari hiu tersebut. Mereka menghadapi pertempuran sengit dengan hiu yang agresif, yang menyebabkan kerusakan pada kapal mereka dan kematian Quint.
+                        Brody akhirnya berhasil membunuh hiu dengan menembak tabung udara yang ia masukkan ke mulut hiu, menyebabkan ledakan besar. Brody dan Hooper, yang selamat dari pertempuran, berenang kembali ke daratan dengan tong-tong yang ada di sekitar kapal yang hancur.
+                    </p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('jaws')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('jaws')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="jaws2" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/movie/579" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h2>Jaws 2</h2>
+                    <p>Chief Brody yang masih berusaha menjaga Amity Island aman setelah kejadian di film pertama. Ia menghadapi ancaman baru ketika serangkaian insiden terjadi, termasuk hilangnya penyelam dan kapal terbakar.
+                        Brody mencurigai adanya serangan hiu lagi, meskipun banyak pihak di sekitar pulau meragukannya. Ketika sekumpulan remaja pergi berlayar, hiu putih besar kembali menyerang, menyebabkan kerusakan dan kepanikan. Brody segera melakukan aksi penyelamatan dengan menggunakan helikopter, tetapi hiu berhasil mengalahkannya.
+                        Akhirnya, Brody berhadapan langsung dengan hiu tersebut untuk menyelamatkan anak-anak yang terjebak. Dengan keberanian dan kecerdasan, Brody berhasil mengalahkan hiu dengan menjatuhkan kabel listrik ke air dan menyetrumnya. Para remaja berhasil selamat, dan Brody kembali menjadi pahlawan di Amity Island.</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('jaws2')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('jaws2')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+    function toggleDescription(pageId) {
+        var descriptionSection = document.getElementById(pageId).querySelector('.description');
+        var showButton = document.getElementById(pageId).querySelector('.show-button');
+        var hideButton = document.getElementById(pageId).querySelector('.hide-button');
+
+        descriptionSection.classList.toggle('show');
+        showButton.style.display = descriptionSection.classList.contains('show') ? 'none' : 'block';
+        hideButton.style.display = descriptionSection.classList.contains('show') ? 'block' : 'none';
+    }
+
+        function showPage(pageId) {
+            var pages = document.querySelectorAll('.page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+            document.getElementById(pageId).style.display = 'block';
+            closeNav();
+        }
+    </script>
+    <script src="scripts/movie.js"></script>
+</body>
+</html>

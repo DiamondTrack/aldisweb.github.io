@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Favorites</title>
+    <link rel="stylesheet" href="styles/style.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+    }
+    
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 800px;
+      position: relative;
+      margin: auto;
+      background-color: black;
+      cursor: progress;
+    }
+    
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%); /* Untuk mengatur posisi tombol secara vertikal ke tengah */
+      width: 10%; /* Mengatur lebar tombol menjadi 10% dari lebar container */
+      height: auto; /* Mengatur tinggi tombol agar disesuaikan dengan konten di dalamnya */
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    
+    }
+    
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+    
+    /* Caption text */
+    .text-container {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .title {
+      color: #f2f2f2;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 10px;
+    }
+    
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      margin: 10px;
+      padding-bottom: 10px;
+    }
+    
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+    
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+    
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+    
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .prev, .next,.text {font-size: 11px}
+    }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="mySlides fade" onclick="openPage('the-5th-wave.html')">
+            
+        <div class="numbertext">1 / 43</div>
+        <img src="1.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">The 5th Wave</div>
+              <div class="text">
+                Film yang Menceritakan tentang invasi alien yang mengancam keberadaan manusia di Bumi.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('under-the-dome')">
+            <div class="numbertext">2 / 43</div>
+            <img src="2.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Under the Dome</div>
+              <div class="text">
+                Film yang menceritakan kisah penduduk kota kecil bernama Chester's Mill yang tiba-tiba terperangkap di bawah sebuah kubah transparan yang muncul secara misterius..
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('Wyrmndwood-Apocalypse.html')">
+            <div class="numbertext">3 / 43</div>
+            <img src="3.webp" style="width:100%">
+            <div class="text-container">
+              <div class="title">Wyrmndwood: Apocalypse</div>
+              <div class="text">
+                Film yang menceritakan tentang petualangan seorang tentara yang bekerja untuk organisasi misterius di dunia yang dilanda wabah zombie. Tugasnya adalah menangkap manusia yang masih hidup untuk digunakan sebagai bahan eksperimen.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('world-war-z.html')">
+            <div class="numbertext">4 / 43</div>
+            <img src="4.webp" style="width:100%">
+            <div class="text-container">
+              <div class="title">World War Z</div>
+              <div class="text">
+                Film yang menceritakan tentang wabah zombie global yang dengan cepat menyebar dan mengancam kelangsungan hidup umat manusia.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('close-encounters-of-the-third-kind.html')">
+            <div class="numbertext">5 / 43</div>
+            <img src="5.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Close Encounters of the Third Kind</div>
+              <div class="text">
+                Film yang menceritakan tentang pengalaman seseorang yang bertemu dengan objek terbang tak dikenal (UFO) dan kehidupan luar angkasa.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('independence-day.html')">
+            <div class="numbertext">7 / 43</div>
+            <img src="7.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Independence Day</div>
+              <div class="text">
+                Film yang menceritakan tentang invasi alien besar-besaran ke Bumi dan perjuangan umat manusia untuk bertahan hidup dan melawan balik. Ketika pesawat-pesawat induk raksasa tiba di berbagai kota besar di seluruh dunia, makhluk luar angkasa mulai melancarkan serangan mematikan yang menghancurkan kota-kota tersebut.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('alien.html')">
+            <div class="numbertext">8 / 43</div>
+            <img src="8.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Alien (1979)</div>
+              <div class="text">
+                Film yang menceritakan tentang perjalanan kapal antariksa komersial Nostromo yang menerima sinyal bahaya dari planet yang jauh saat dalam perjalanan kembali ke Bumi.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('hancock.html')">
+            <div class="numbertext">9 / 43</div>
+            <img src="9.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Hancock</div>
+              <div class="text">
+                Film yang menceritakan tentang seorang pahlawan super yang tidak biasa bernama John Hancock.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('wall-e.html')">
+            <div class="numbertext">10 / 43</div>
+            <img src="10.png" style="width:100%">
+            <div class="text-container">
+              <div class="title">Wall E</div>
+              <div class="text">
+                Film yang menceritakan tentang sebuah robot bernama WALL-E (Waste Allocation Load Lifter: Earth-Class), yang ditugaskan untuk membersihkan bumi yang telah menjadi tak berpenghuni dan penuh sampah.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('home-alone.html')">
+            <div class="numbertext">11 / 43</div>
+            <img src="11.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Home Alone</div>
+              <div class="text">
+                Film asli yang menceritakan petualangan Kevin McCallister yang tertinggal sendirian di rumah dan harus berhadapan dengan dua pencuri.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('home-alone-2.html')">
+            <div class="numbertext">12 / 43</div>
+            <img src="12.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Home Alone 2: Lost in New York</div>
+              <div class="text">
+                Sekuel dari film pertama <a href="home-alone.html">Home Alone</a> di mana Kevin McCallister terpisah dari keluarganya dan harus menghadapi pencuri di New York City.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('home-alone-3.html')">
+            <div class="numbertext">13 / 43</div>
+            <img src="13.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Home Alone 3</div>
+              <div class="text">
+                Alex Pruitt, seorang anak berusia delapan tahun, menderita cacar air dan harus tinggal di rumah. Sementara itu, sekelompok penjahat mencari chip komputer rahasia yang secara tidak sengaja berakhir di mobil mainan Alex. Alex menggunakan perangkap cerdik untuk menggagalkan usaha mereka.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('home-alone-4.html')">
+            <div class="numbertext">14 / 43</div>
+            <img src="14.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Home Alone 4: Taking Back the House</div>
+              <div class="text">
+                Kevin McCallister, yang sekarang tinggal bersama ibunya setelah orang tuanya bercerai, diundang tinggal bersama ayahnya di rumah mewah. Ketika penjahat berencana mencuri dari rumah ayahnya, Kevin menggunakan perangkap untuk menghentikan mereka.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('home-alone-holidayheist.html')">
+            <div class="numbertext">15 / 43</div>
+            <img src="15.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Home Alone: The Holiday Heist</div>
+              <div class="text">
+                Finn Baxter pindah ke rumah tua di Maine dan mengira rumahnya berhantu. Saat sekelompok penjahat mencoba mencuri karya seni berharga, Finn bersama kakaknya melindungi rumah mereka dengan perangkap.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('home-sweet-home-alone.html')">
+            <div class="numbertext">16 / 43</div>
+            <img src="16.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Home Sweet Home Alone</div>
+              <div class="text">
+                Max Mercer tertinggal sendirian di rumahnya saat keluarganya pergi berlibur. Ketika pasangan suami-istri mencoba mencuri dari rumahnya, Max menggunakan perangkap cerdik untuk melindungi rumahnya dari para penjahat.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('jaws.html')">
+            <div class="numbertext">17 / 43</div>
+            <img src="17.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Jaws</div>
+              <div class="text">
+                Seekor hiu putih besar yang menyerang para pengunjung pantai di kota kecil Amity. Kepala polisi Martin Brody, seorang ahli biologi kelautan, dan seorang pemburu hiu harus bekerja sama untuk menangkap hiu tersebut dan melindungi penduduk kota.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('belum-ada.html')">
+            <div class="numbertext">18 / 43</div>
+            <img src="18.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">Upload</div>
+              <div class="text">
+                Teknologi masa depan di mana orang dapat mengunggah kesadaran mereka ke dunia digital setelah kematian. Film ini mengikuti Nathan, yang setelah kematian mendadak, diunggah ke realitas virtual dan mulai berinteraksi dengan lingkungan barunya sambil menyelidiki kematiannya.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+          <div class="mySlides fade" onclick="openPage('et-the-extra-terrestrial.html')">
+            <div class="numbertext">6 / 43</div>
+            <img src="6.jpg" style="width:100%">
+            <div class="text-container">
+              <div class="title">E.T. the Extra-Terrestrial</div>
+              <div class="text">
+                Film yang menceritakan tentang kisah persahabatan antara seorang anak laki-laki bernama Elliott dan makhluk luar angkasa yang dikenal sebagai E.T.
+              </div>
+            </div>
+          </div>
+
+          <!--END OF MOVIE LIST-->
+        </div>
+          
+          <a class="prev" onclick="plusSlides(-1)">❮</a>
+          <a class="next" onclick="plusSlides(1)">❯</a>              
+    <br>
+    
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span> 
+      <span class="dot" onclick="currentSlide(4)"></span> 
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span> 
+      <span class="dot" onclick="currentSlide(7)"></span> 
+      <span class="dot" onclick="currentSlide(8)"></span> 
+      <span class="dot" onclick="currentSlide(9)"></span> 
+      <span class="dot" onclick="currentSlide(10)"></span> 
+      <span class="dot" onclick="currentSlide(11)"></span> 
+      <span class="dot" onclick="currentSlide(12)"></span> 
+      <span class="dot" onclick="currentSlide(13)"></span> 
+      <span class="dot" onclick="currentSlide(14)"></span> 
+      <span class="dot" onclick="currentSlide(15)"></span> 
+      <span class="dot" onclick="currentSlide(16)"></span> 
+      <span class="dot" onclick="currentSlide(17)"></span> 
+      <span class="dot" onclick="currentSlide(18)"></span> 
+      <span class="dot" onclick="currentSlide(19)"></span> 
+      <span class="dot" onclick="currentSlide(20)"></span> 
+      <span class="dot" onclick="currentSlide(21)"></span> 
+      <span class="dot" onclick="currentSlide(22)"></span> 
+      <span class="dot" onclick="currentSlide(23)"></span> 
+      <span class="dot" onclick="currentSlide(24)"></span> 
+      <span class="dot" onclick="currentSlide(25)"></span> 
+      <span class="dot" onclick="currentSlide(26)"></span> 
+      <span class="dot" onclick="currentSlide(27)"></span> 
+      <span class="dot" onclick="currentSlide(28)"></span> 
+      <span class="dot" onclick="currentSlide(29)"></span> 
+      <span class="dot" onclick="currentSlide(30)"></span> 
+      <span class="dot" onclick="currentSlide(31)"></span> 
+      <span class="dot" onclick="currentSlide(32)"></span> 
+      <span class="dot" onclick="currentSlide(33)"></span> 
+      <span class="dot" onclick="currentSlide(34)"></span> 
+      <span class="dot" onclick="currentSlide(35)"></span> 
+      <span class="dot" onclick="currentSlide(36)"></span> 
+      <span class="dot" onclick="currentSlide(37)"></span> 
+      <span class="dot" onclick="currentSlide(38)"></span> 
+      <span class="dot" onclick="currentSlide(39)"></span> 
+      <span class="dot" onclick="currentSlide(40)"></span> 
+      <span class="dot" onclick="currentSlide(41)"></span> 
+      <span class="dot" onclick="currentSlide(42)"></span> 
+      <span class="dot" onclick="currentSlide(43)"></span>  
+    </div>
+    
+    <!--INFORMASI-->
+    <p>HOLA GES! Karena Gua Bingung nih Disini, Mendingan Dibikin Ulang Tata letaknya + berfolder atau Enggak, Jadi Gua memutuskan Pakai Carousell biar Adil, Soalnya ini "tampilan sebelumnya" di Desktop itu Kayak Bisa Berjejer tapi Di HP gak Bisa, Sebenarnya bisa gw Tata Ulang tapi... Gw Memutuskan pakai Carousell aja, Kenapa? Biar lebih Modern :> Lagipula gw Kerja Sendiri dan Mikir sendiri, Gak Ada tuh yang bisa gw Tanyai Sarannya, Jadi Gini aja Sementara. Kalau Kalian Lebih Suka Tampilan lama, Gw Masih Simpan di aldi.my.id/ramdomovie/old yang Kemungkinan Gak bakalan update kecuali kalian lebih suka Old Interface. Well itu aja, and Sorry kalau Semisal halamannya Gak enak dilihat karena, Gw Masih Pemula... Betul-betul Pemula ges, Gw Mengandalkan kemampuan gw Merangkai kata untuk gw Mengandalkan kemampuan <a href="chat.openai.com">AI</a></p>
+    <br>
+    <h1>Dibawah Ini Tampilan Lama</h1>
+    <iframe style="height: 640px; width: 100%" src="indexold.html"></iframe>
+
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+  
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+  
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+  
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+      }
+  
+      function openPage(url) {
+          window.location.href = url; // Redirect ke halaman yang ditentukan
+      }
+  
+      // Menambahkan event listener untuk mengendalikan slideshow dengan tombol keyboard
+      document.addEventListener('keydown', function(event) {
+          switch(event.key) {
+              case 'P':
+              case '<':
+              case 'p':
+                  plusSlides(-1);
+                  break;
+              case 'N':
+              case '>':
+              case 'n':
+                  plusSlides(1);
+                  break;
+          }
+      });
+  </script>  
+  
+    
+    </body>
+    </html> 
+        

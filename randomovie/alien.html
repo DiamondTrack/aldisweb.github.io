@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trailer Film - Alien (1979)</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .video-container {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .description {
+            display: none;
+            padding: 20px;
+        }
+        .show {
+            display: block;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .show-button, .hide-button {
+            background-color: #fff;
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hide-button {
+            display: none;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 10px;
+            color: #fff;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/movie/348" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h2>Alien (1979)</h2>
+            <p>Perjalanan kapal antariksa komersial, Nostromo, yang sedang dalam perjalanan kembali ke Bumi ketika menerima sinyal bahaya dari planet yang jauh. Saat mendarat di planet tersebut, tiga anggota kru menemukan sebuah ruangan berisi ribuan telur alien.
+                Salah satu telur melepaskan makhluk yang menyerang anggota kru, menempel pada wajahnya, dan kemudian memasuki tubuhnya. Setelah kembali ke kapal, kru menghadapi kengerian tak terduga saat parasit alien yang tumbuh di dalam tubuh anggota kru lahir. Makhluk mengerikan ini mengancam keselamatan seluruh kru, dan mereka harus berjuang untuk bertahan hidup.
+            </p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription()">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription()">Tutup Deskripsi</button>
+        </div>
+        <div class="copyright">
+            &copy; 2024 Alien. All rights reserved.
+        </div>
+    </div>
+
+    <script src="scripts/movie.js"></script>
+</body>
+</html>
