@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trailer Film - Mr Bean</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        body, html {
+            margin: 5px;
+            padding: 6px;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+        }
+        .container {
+            position: relative;
+            height: 100%;
+        }
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 30px;
+            height: 90vh;
+        }
+        .sidenav a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .sidenav .dropdown-btn {
+            padding: 10px 20px;
+            font-size: 20px;
+            color: #818181;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            width: 100%;
+            text-align: left;
+            outline: none;
+        }
+        .sidenav .dropdown-btn:hover {
+            background-color: #333;
+            color: #f1f1f1;
+        }
+        .sidenav .dropdown-container {
+            display: none;
+            background-color: #111;
+            padding-left: 20px;
+        }
+        .sidenav .submenu a {
+            padding: 5px 0px 5px 20px;
+            font-size: 18px;
+            color: #818181;
+            display: block;
+        }
+        .sidenav .submenu a:hover {
+            color: #f1f1f1;
+        }
+
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            overflow: auto;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .description {
+            display: none;
+            padding: 20px;
+        }
+        .show {
+            display: block;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .show-button, .hide-button {
+            background-color: #fff;
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hide-button {
+            display: none;
+        }
+        .openbtn {
+            background-color: transparent;
+            opacity: 0.8;
+            color: lime;
+            cursor: pointer;
+            padding: 10px 15px;
+            position: fixed;
+            bottom: 10px;
+            right: 20px;
+            border: none;
+            outline: none;
+            z-index: 3;
+        }
+        .openbtn:hover {
+            background-color: #444;
+            opacity: 1;
+        }
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }
+      
+    .thumbnails-container {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: black;
+        justify-content: center;
+    }
+    .thumbnail {
+        width: 200px;
+        margin: 10px;
+        text-align: center;
+        z-index: 1;
+        box-shadow: 0 2px 4px rgba(0, 255, 0, 0.5);
+        transition: transform 0.5s, background-color 1s;
+        background-color: white;
+        border: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #000;
+    }
+      .thumbnail:hover {
+        transform: translateY(-5px);
+        background-color: black;
+        color: cyan;
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+        transition: box-shadow 0.3s ease; 
+}
+    .thumbnail img {
+        width: 90%;
+        height: auto;
+        border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+<!-- Halaman Utama -->
+<div id="home" class="page" style="display: block;">
+    <div class="container">
+        <h2>Pilih Season dulu Kak</h2>
+        <div class="thumbnails-container">
+            <!-- Thumbnail untuk memilih Season 1 -->
+            <a href="#" onclick="showPage('ss1');" class="thumbnail">
+                <img src="S1.jpg" alt="Season 1">
+                <p>Season 1</p>
+            </a>
+
+            <a href="#" onclick="showPage('special');" class="thumbnail">
+                <img src="Special.jpg" alt="Season Special">
+                <p>Special</p>
+            </a>
+
+            <!-- Tambahkan season lainnya sesuai kebutuhan -->
+        </div>
+    </div>
+</div>
+
+<!-- Halaman Season 1 -->
+<div id="ss1" class="page" style="display: none;">
+    <div class="container">
+        <h2>Pilih Episode - Season 1</h2>
+        <div class="thumbnails-container">
+            <!-- Deskripsi untuk memilih Episode 1 di Season 1 -->
+            <a href="#" onclick="showPage('1ep1');" class="thumbnail">
+                <h1>Episode 1</h1>
+                <p>
+                    Mr. Bean
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 2 di Season 1 -->
+            <a href="#" onclick="showPage('1ep2');" class="thumbnail">
+                <h1>Episode 2</h1>
+                <p>
+                    The Return of Mr. Bean
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 3 di Season 1 -->
+            <a href="#" onclick="showPage('1ep3');" class="thumbnail">
+                <h1>Episode 3</h1>
+                <p>
+                    The Curse of Mr. Bean
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 4 di Season 1 -->
+            <a href="#" onclick="showPage('1ep4');" class="thumbnail">
+                <h1>Episode 4</h1>
+                <p>
+                    Mr. Bean Goes to Town
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 5 di Season 1 -->
+            <a href="#" onclick="showPage('1ep5');" class="thumbnail">
+                <h1>Episode 5</h1>
+                <p>
+                    The Trouble with Mr. Bean
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 6 di Season 1 -->
+            <a href="#" onclick="showPage('1ep6');" class="thumbnail">
+                <h1>Episode 6</h1>
+                <p>
+                    Mr. Bean Rides Again
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 7 di Season 1 -->
+            <a href="#" onclick="showPage('1ep7');" class="thumbnail">
+                <h1>Episode 7</h1>
+                <p>
+                    Merry Christmas Mr. Bean
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 8 di Season 1 -->
+            <a href="#" onclick="showPage('1ep8');" class="thumbnail">
+                <h1>Episode 8</h1>
+                <p>
+                    Mr. Bean in Room 426
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 9 di Season 1 -->
+            <a href="#" onclick="showPage('1ep9');" class="thumbnail">
+                <h1>Episode 9</h1>
+                <p>
+                    Do-It-Yourself Mr. Bean
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 10 di Season 1 -->
+            <a href="#" onclick="showPage('1ep10');" class="thumbnail">
+                <h1>Episode 10</h1>
+                <p>
+                    Mind the Baby, Mr. Bean
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 11 di Season 1 -->
+            <a href="#" onclick="showPage('1ep11');" class="thumbnail">
+                <h1>Episode 11</h1>
+                <p>
+                    Back to School Mr. Bean
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 12 di Season 1 -->
+            <a href="#" onclick="showPage('1ep12');" class="thumbnail">
+                <h1>Episode 12</h1>
+                <p>
+                    Tee Off, Mr. Bean
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 13 di Season 1 -->
+            <a href="#" onclick="showPage('1ep13');" class="thumbnail">
+                <h1>Episode 13</h1>
+                <p>
+                    Goodnight, Mr. Bean
+                </p>
+            </a>
+            <!-- Deskripsi untuk memilih Episode 14 di Season 1 -->
+            <a href="#" onclick="showPage('1ep14');" class="thumbnail">
+                <h1>Episode 14</h1>
+                <p>
+                    Hair by Mr. Bean of London
+                </p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Halaman Season Special -->
+<div id="special" class="page" style="display: none;">
+    <div class="container">
+        <h2>Pilih Episode - Musim Special</h2>
+        <div class="thumbnails-container">
+            <a href="#" onclick="showPage('ep1s');" class="thumbnail">
+                <h1>Episode 1</h1>
+                <p>
+                    The Library
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep2s');" class="thumbnail">
+                <h1>Episode 2</h1>
+                <p>
+                    Mr. Bean's Red Nose Day
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep3s');" class="thumbnail">
+                <h1>Episode 3</h1>
+                <p>
+                    The Bus Stop
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep4s');" class="thumbnail">
+                <h1>Episode 4</h1>
+                <p>
+                    I Want To Be Elected
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep5s');" class="thumbnail">
+                <h1>Episode 5</h1>
+                <p>
+                    Blind Date
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep6s');" class="thumbnail">
+                <h1>Episode 6</h1>
+                <p>
+                    Torvill and Bean
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep7s');" class="thumbnail">
+                <h1>Episode 7</h1>
+                <p>
+                    The Best Bits of Mr. Bean
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep8s');" class="thumbnail">
+                <h1>Episode 8</h1>
+                <p>
+                    The Story of Bean
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep9s');" class="thumbnail">
+                <h1>Episode 9</h1>
+                <p>
+                    Mr. Bean's Wedding
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep10s');" class="thumbnail">
+                <h1>Episode 10</h1>
+                <p>
+                    Funeral
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep11s');" class="thumbnail">
+                <h1>Episode 11</h1>
+                <p>
+                    Picture of You
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep12s');" class="thumbnail">
+                <h1>Episode 12</h1>
+                <p>
+                    Mr. Bean Drives His Car Again
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep13s');" class="thumbnail">
+                <h1>Episode 13</h1>
+                <p>
+                    Mr. Bean at the Olympic
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep14s');" class="thumbnail">
+                <h1>Episode 14</h1>
+                <p>
+                    Happy Birthday Mr. Bean
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep15s');" class="thumbnail">
+                <h1>Episode 15</h1>
+                <p>
+                    The Chair
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep16s');" class="thumbnail">
+                <h1>Episode 16</h1>
+                <p>
+                    Mr. Bean at the Olympic
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep17s');" class="thumbnail">
+                <h1>Episode 17</h1>
+                <p>
+                    Marching
+                </p>
+            </a>
+            <a href="#" onclick="showPage('ep18s');" class="thumbnail">
+                <h1>Episode 18</h1>
+                <p>
+                    Playing with Matches
+                </p>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+    <div class="container">
+        <button class="openbtn" onclick="openNav()">Pilih Episode</button>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <button class="dropdown-btn" onclick="toggleDropdown('submenu-season1')">Season 1
+                <span>&#9660;</span>
+            </button>
+            <div id="submenu-season1" class="dropdown-container">
+                <a href="#" onclick="showPage('1ep1')">EP 1</a>
+                <a href="#" onclick="showPage('1ep2')">EP 2</a>
+                <a href="#" onclick="showPage('1ep3')">EP 3</a>
+                <a href="#" onclick="showPage('1ep4')">EP 4</a>
+                <a href="#" onclick="showPage('1ep5')">EP 5</a>
+                <a href="#" onclick="showPage('1ep6')">EP 6</a>
+                <a href="#" onclick="showPage('1ep7')">EP 7</a>
+                <a href="#" onclick="showPage('1ep8')">EP 8</a>
+                <a href="#" onclick="showPage('1ep9')">EP 9</a>
+                <a href="#" onclick="showPage('1ep10')">EP 10</a>
+                <a href="#" onclick="showPage('1ep11')">EP 11</a>
+                <a href="#" onclick="showPage('1ep12')">EP 12</a>
+                <a href="#" onclick="showPage('1ep13')">EP 13</a>
+            </div>
+            
+            <button class="dropdown-btn" onclick="toggleDropdown('submenu-season-special')">Season Special
+                <span>&#9660;</span>
+            </button>
+            <div id="submenu-season-special" class="dropdown-container">
+                <a href="#" onclick="showPage('ep1s')">EP 1</a>
+                <a href="#" onclick="showPage('ep3s')">EP 3</a>
+                <a href="#" onclick="showPage('ep2s')">EP 2</a>
+                <a href="#" onclick="showPage('ep4s')">EP 4</a>
+                <a href="#" onclick="showPage('ep5s')">EP 5</a>
+                <a href="#" onclick="showPage('ep6s')">EP 6</a>
+                <a href="#" onclick="showPage('ep7s')">EP 7</a>
+                <a href="#" onclick="showPage('ep8s')">EP 8</a>
+                <a href="#" onclick="showPage('ep9s')">EP 9</a>
+                <a href="#" onclick="showPage('ep10s')">EP 10</a>
+                <a href="#" onclick="showPage('ep11s')">EP 11</a>
+                <a href="#" onclick="showPage('ep12s')">EP 12</a>
+                <a href="#" onclick="showPage('ep13s')">EP 13</a>
+                <a href="#" onclick="showPage('ep14s')">EP 14</a>
+                <a href="#" onclick="showPage('ep15s')">EP 15</a>
+                <a href="#" onclick="showPage('ep16s')">EP 16</a>
+                <a href="#" onclick="showPage('ep17s')">EP 17</a>
+                <a href="#" onclick="showPage('ep18s')">EP 18</a>
+            </div>
+        </div>
+    
+    <!--SEASON 1 PAGE-->
+        <div id="1ep1" class="page">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/4327/1/1" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 1 - Mr. Bean</h3>
+                    <p>Mr. Bean, seorang pria aneh yang ceroboh, berangkat ke toko barang antik untuk membeli sofa baru. Namun, dalam prosesnya, dia menemui berbagai kesulitan dan kekonyolan yang khas.</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep1')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep1')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep2" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/4327/1/2" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 2 - The Return of Mr. Bean</h3>
+                    <p>Mr. Bean pergi ke bioskop untuk menonton film bersama temannya. Namun, segala sesuatunya menjadi kacau ketika Bean tidak memiliki uang cukup untuk membayar tiket dan berakhir membuat kacau di dalam teater.</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep2')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep2')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep3" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/4327/1/3" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 3 - The Curse of Mr. Bean</h3>
+                    <p>Mr. Bean mengunjungi museum seni dan terlibat dalam berbagai situasi konyol saat mencoba untuk mengambil foto dengan beberapa lukisan terkenal.</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep3')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep3')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep4" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/4327/1/4" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 4 - Mr. Bean Goes to Town</h3>
+                    <p>Mr. Bean berangkat ke pusat perbelanjaan, di mana dia menemui berbagai kesulitan saat mencoba untuk melakukan pembelian sederhana dan berakhir menyebabkan kekacauan di sepanjang jalan.</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep4')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep4')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep5" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/4327/1/5" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 5 - The Trouble with Mr. Bean</h3>
+                    <p>Mr. Bean mengunjungi toko permen lokal dan terlibat dalam serangkaian kejadian lucu saat mencoba untuk memuaskan keinginannya yang tidak terbatas untuk permen.</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep5')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep5')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep6" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/4327/1/6" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 6 - Mr. Bean Rides Again</h3>
+                    <p>Mr. Bean pergi berlibur ke pantai, di mana dia menemukan sejumlah kesulitan dan kejadian lucu saat mencoba untuk menikmati hari liburnya.</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep6')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep6')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="1ep7" class="page" style="display: none;">
+            <div class="container">
+                <div class="video-container">
+                    <iframe src="https://vidsrc.to/embed/tv/4327/1/7" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+                <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 7 - Merry Christmas, Mr. Bean</h3>
+                    <p>Mr. Bean bersiap untuk merayakan Natal dengan cara khasnya sendiri, tetapi segala sesuatunya berakhir menjadi kacau saat dia mencoba untuk mempersiapkan segala sesuatu untuk perayaan tersebut.</p>
+                </div>
+                <div class="button-container">
+                    <button class="show-button" onclick="toggleDescription('1ep7')">Lihat Deskripsi</button>
+                    <button class="hide-button" onclick="toggleDescription('1ep7')">Tutup Deskripsi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="1ep8" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/4327/1/8" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 8 - Mr. Bean in Room 426</h3>
+                    <p>Mr. Bean menginap di sebuah hotel, di mana dia menemui sejumlah kesulitan dan kekonyolan saat mencoba untuk beristirahat dan menghabiskan malamnya.</p>
+                </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep8')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep8')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="1ep9" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/4327/1/9" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 9 - Do-It-Yourself Mr. Bean</h3>
+                    <p>Mr. Bean mencoba untuk merenovasi apartemennya sendiri dengan cara konyol, yang menghasilkan sejumlah kejadian lucu dan kekacauan di sepanjang jalan.</p>
+                </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep9')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep9')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="1ep10" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/4327/1/10" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 10 - Mind the Baby, Mr. Bean</h3>
+                    <p>Mr. Bean harus menjaga seorang bayi di taman, tetapi segala sesuatunya menjadi kacau ketika dia kehilangan kendali atas situasi dan berakhir berada dalam sejumlah situasi yang lucu dan berbahaya.</p>
+                </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep10')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep10')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="1ep11" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/4327/1/11" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 11 - Back to School Mr. Bean</h3>
+                    <p>Mr. Bean mengunjungi sebuah sekolah dan terlibat dalam berbagai kekonyolan saat dia mencoba untuk menjadi guru pengganti.</p>
+                </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep11')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep11')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="1ep12" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/4327/1/12" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 12 - Tee Off, Mr. Bean</h3>
+                    <p>Mr. Bean pergi bermain golf, tetapi kekonyolan dan kesulitan mengikutinya ke lapangan golf.</p>
+                </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep12')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep12')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="1ep13" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/4327/1/13" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 13 - Goodnight Mr. Bean</h3>
+                    <p>Mr. Bean menghadiri sebuah teater dan mengalami serangkaian kejadian konyol saat mencoba untuk menikmati pertunjukan.</p>
+                </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep13')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep13')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    <div id="1ep14" class="page" style="display: none;">
+        <div class="container">
+            <div class="video-container">
+                <iframe src="https://vidsrc.to/embed/tv/4327/1/14" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+            </div>
+            <div class="description">
+                    <h1>Mr Bean - Season 1</h1>
+                    <h3>Episode 14 - Hair by Mr. Bean of London</h3>
+                    <p>Mr. Bean pergi ke salon rambut dan mencoba untuk membereskan rambutnya sendiri, yang berakhir dengan kekonyolan yang tak terduga.</p>
+                </div>
+            <div class="button-container">
+                <button class="show-button" onclick="toggleDescription('1ep14')">Lihat Deskripsi</button>
+                <button class="hide-button" onclick="toggleDescription('1ep14')">Tutup Deskripsi</button>
+            </div>
+        </div>
+    </div>
+    
+<!--SEASON SPECIAL PAGE-->
+<div id="ep1s" class="page">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/1" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode1 - The Library</h3>
+            <p>Mr. Bean berkunjung ke perpustakaan langka di mana ia membaca buku yang harus ditangani dengan sarung tangan. Namun, kekacauan terjadi ketika ia menggandakan halaman buku dengan cara yang khasnya sendiri.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep1s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep1s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep2s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/2" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 2 - Mr. Bean's Red Nose Day</h3>
+            <p>Mr. Bean berpartisipasi dalam acara amal Red Nose Day, di mana ia memberikan penampilan lucu selama enam menit untuk mendukung penyebab tersebut.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep2s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep2s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep3s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/3" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 3 - The Bus Stop</h3>
+            <p>Setelah melewatkan satu bus, Mr. Bean bertekad untuk menangkap bus berikutnya, tanpa memedulikan orang lain di sekitarnya.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep3s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep3s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep4s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/4" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 4 - I Want To Be Elected</h3>
+            <p>Mr. Bean mencalonkan diri dalam pemilihan umum sebagai anggota tunggal dari "The Bean Party", dan membuat kekacauan dengan berbagai cara tidak biasa.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep4s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep4s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep5s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/5" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 5 - Blind Date</h3>
+            <p>Mr. Bean menjadi kontestan dalam acara kencan buta, di mana ia menjawab pertanyaan dengan jujur dan konyol, lalu membuat kekacauan selama kencan romantis.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep5s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep5s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep6s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/6" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 6 - Torvill and Bean</h3>
+            <p>Dalam sketsa komedi "Torvill and Bean", Mr. Bean membuat kekacauan saat menghadiri pertunjukan "Show on Ice".</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep6s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep6s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep7s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/7" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 7 - The Best Bits of Mr. Bean</h3>
+            <p>Mr. Bean dan Teddy menjelajahi loteng untuk mencari payung dan menemukan barang-barang dari pengalaman masa lalu Mr. Bean.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep7s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep7s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep8s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/8" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 8 - The Story of Bean</h3>
+            <P>Dokumenter kecil yang menceritakan kisah di balik serial televisi "Mr. Bean" dan film Bean, dirilis pada tahun itu.</P>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep8s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep8s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep9s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/9" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 9 - Mr. Bean's Wedding</h3>
+            <p>Mr. Bean membuat kekacauan dalam sebuah pernikahan dengan mengulangi sumpah setelah pendeta, menyebabkan pertengkaran dan berbagai insiden lucu.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep9s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep9s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep10" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/10" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 10 - Funeral</h3>
+            <p>Mr. Bean hadir dalam sebuah acara pemakaman di mana ia membuat kekacauan dengan meniru gerakan dan tindakan orang lain.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep10s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep10s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep11s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/11" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 11 - Picture of You</h3>
+            <p>Kolaborasi antara Boyzone dan Mr. Bean dalam sebuah episode spesial.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep11s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep11s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep12s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/12" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 12 - Mr. Bean Drives His Car Again</h3>
+            <p>Mr. Bean mengendarai mobilnya lagi dalam rangka perayaan ulang tahunnya yang ke-25.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep12s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep12s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep13s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/13" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 13 - Mr. Bean at the Olympic</h3>
+            <p>Mr. Bean tampil dalam acara pembukaan Olimpiade London 2012, berkolaborasi dengan London Symphony Orchestra.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep13s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep13s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep14s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/14" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 14 - Happy Birthday Mr. Bean</h3>
+            <p>Sebuah dokumenter tentang popularitas global karakter Mr. Bean, yang awalnya hanya muncul dalam 14 episode, tetapi telah menjadi fenomena online dengan jutaan penggemar.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep14s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep14s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep15s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/15" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 15 - The Chair</h3>
+            <p>Adegan yang dihapus dari episode Do-It-Yourself, Mr. Bean.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep15s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep15s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep16s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/16" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 16 - Marching</h3>
+            <p>Adegan yang dihapus dari episode Back to School, Mr. Bean.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep16s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep16s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep17s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/17" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 17 - Playing with Matches</h3>
+            <p>Adegan yang dihapus dari episode Back to School, Mr. Bean.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep17s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep17s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+<div id="ep18s" class="page" style="display: none;">
+    <div class="container">
+        <div class="video-container">
+            <iframe src="https://vidsrc.to/embed/tv/4327/0/18" frameborder="0" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+        </div>
+        <div class="description">
+            <h1>Mr Bean - Special</h1>
+            <h3>Episode 18 - The Stonk</h3>
+            <p>Kolaborasi antara Hale and Pace dan Mr. Bean dalam sebuah episode spesial.</p>
+        </div>
+        <div class="button-container">
+            <button class="show-button" onclick="toggleDescription('ep18s')">Lihat Deskripsi</button>
+            <button class="hide-button" onclick="toggleDescription('ep18s')">Tutup Deskripsi</button>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <script>
+    function toggleDescription(pageId) {
+        var descriptionSection = document.getElementById(pageId).querySelector('.description');
+        var showButton = document.getElementById(pageId).querySelector('.show-button');
+        var hideButton = document.getElementById(pageId).querySelector('.hide-button');
+
+        descriptionSection.classList.toggle('show');
+        showButton.style.display = descriptionSection.classList.contains('show') ? 'none' : 'block';
+        hideButton.style.display = descriptionSection.classList.contains('show') ? 'block' : 'none';
+    }
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function showPage(pageId) {
+            var pages = document.querySelectorAll('.page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = 'none';
+            }
+            document.getElementById(pageId).style.display = 'block';
+            closeNav();
+        }
+
+        function toggleDropdown(submenuId) {
+            var dropdownContainer = document.getElementById(submenuId);
+            dropdownContainer.style.display = dropdownContainer.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
