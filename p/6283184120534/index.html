@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Aldi">
+    <meta name="description" content="Akun Bisnis">
+    <meta property="og:image" content="profile.jpg">
+    <meta property="og:title" content="Aldi">
+    <meta property="og:description" content="Akun Bisnis">
+    <meta property="og:url" content="https://wa.me/6283184120534?text=aldi.my.id">
+    <title>Aldi</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                window.location.href = 'https://wa.me/6283184120534?text=aldi.my.id';
+            }, 1000);
+
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'a')) {
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+</head>
+<body>
+    <a href="https://wa.me/6283184120534?text=aldi.my.id" class="button">Chat Now</a>
+</body>
+</html>
