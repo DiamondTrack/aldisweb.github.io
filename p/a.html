@@ -1,0 +1,654 @@
+<!---HeaderTemplate-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Her</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" /> <!-- https://getbootstrap.com/ -->
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
+    <link href="css/templatemo-diagoona.css" rel="stylesheet" />
+<!--
+
+TemplateMo 550 Diagoona
+
+https://templatemo.com/tm-550-diagoona
+
+-->
+<!--########################################################################################################
+                                             CSS
+########################################################################################################-->
+  <style>
+    body {
+      font-family: Arial;
+      font-size: 14px;
+      color: #000000;
+      margin: 12px;
+      text-align: left;
+    }
+   
+/*Button Keren*/
+    .cool-button {
+display: inline-block;
+padding: 10px 20px;
+font-size: 16px;
+font-weight: bold;
+text-decoration: none;
+text-align: center;
+color: #ffffff;
+background-color: #000000;
+border: none;
+border-radius: 5px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.15);
+transition: all 0.3s ease;
+}
+.cool-button:hover {
+transform: translateY(-5px);
+}
+.cool-button:active {
+background-color: #45a049;
+transform: translateY(3px);
+}
+
+  /* Gaya untuk quoted text */
+  blockquote {
+    margin: 0; /* Menghilangkan margin bawaan dari browser */
+    padding: 4px; /* Memberikan padding untuk tampilan yang lebih baik */
+    background-color: #f0f0f0; /* Memberikan warna latar belakang */
+    border-left: 2px solid #888; /* Memberikan garis kiri */
+  }
+
+  /* Gaya untuk quoted text dengan dua tanda ">>" */
+  blockquote blockquote {
+    margin-left: 8px; /* Atur margin-left untuk efek indent */
+  }
+    
+/*image text*/
+#imageContainer {
+    position: relative;
+}
+
+#imageInfo {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 1); /* Ubah nilai alpha menjadi 1 */
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    transition: opacity 0.3s ease-in-out; /* Tambahkan efek transisi */
+}
+
+
+    /* Background Teks seperti footer */
+        .bg-text {
+            background-color: #000080;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: cyan;
+            margin: 0;
+        }
+    /* Custom Teks */
+        .cstm-text {
+            text-align: center;
+            font-size: 16px;
+            color: #000000;
+        }
+    /* CSS untuk membuat teks gradien cyan dan kuning keemasan dengan gerakan gradien */
+  .bouncing-text {
+    animation: bounce 1s infinite;
+    background: linear-gradient(45deg, cyan, #ffd700);
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+  
+     /* CSS untuk membuat tampilan awal */
+    .typewriter {
+      overflow: hidden;
+      white-space: pre-line; /* Menggunakan pre-line agar line break (\n) dapat diinterpretasikan */
+      margin: 0 auto; /* Posisi tengah */
+      letter-spacing: 2px; /* Jarak antar huruf */
+      border-right: solid 2px #000; /* Garis penghapus */
+      display: inline-block; /* Teks akan tetap dalam satu baris */
+    }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .blink {
+    animation: blink-animation 1s infinite;
+  }
+
+  @keyframes blink-animation {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+   #ageMe, #ageShe {
+  cursor: pointer;
+  user-select: none; /* Untuk mencegah teks terpilih saat diklik */
+}
+
+#ageMe:not(.visible), #ageShe:not(.visible) {
+  color: transparent;
+}
+
+#ageMe:not(.visible)::before, #ageShe:not(.visible)::before {
+  content: '   ';
+  color: #000;
+}  
+
+   
+    .typing-text {
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 0 auto;
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: bottom;
+      animation: typing 2s steps(40), blink 1s infinite step-end, deleteText 2s steps(40) infinite 3s;
+    }
+ /* Gaya untuk teks dengan efek warna merah */
+    .highlight {
+      background-color: red;
+      padding: 0 5px; /* Menambahkan padding agar highlight terlihat lebih baik */
+    }
+    
+/* Untuk Teks !!Danger*/
+    #container {
+      position: relative;
+      max-width: 600px;
+      width: 100%;
+      background-color: #ff0000;
+      color: #8B0000;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    #title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #8B0000;
+      color: #ff0000;
+      padding: 5px 10px;
+      box-sizing: border-box;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    #triangle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 30px 30px 0;
+      border-color: black transparent transparent transparent;
+      z-index: 0;
+    }
+ 
+  </style>
+
+<style>
+  #popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang dengan transparansi */
+    color: white;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9999; /* Membuat popup muncul di atas elemen lain */
+  }
+
+  #popup p {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  #popup a {
+    font-size: 20px;
+    color: white;
+    text-decoration: underline;
+  }
+  
+  #teksDiklik {
+  max-width: 100%; /* Tentukan lebar maksimal sesuai kebutuhan */
+  word-wrap: break-word; /* Memastikan teks ter-wrap jika melebihi lebar maksimal */
+}
+
+#cloudImage {
+  max-width: 100%; /* Menetapkan lebar maksimal gambar agar sesuai dengan lebar container */
+  height: auto; /* Mengatur tinggi gambar agar mengikuti proporsi aslinya */
+}
+</style>
+
+
+    </head>
+    <body>
+<!--########################################################################################################
+                                             HTML
+########################################################################################################-->    
+<marquee> Ada sesuatu yang Aku Persiapkan untuk dia, Mau tau? Silahkan matikan dan Nyalakan data selular kamu lalu <i>Klik disini untuk melanjutkan</i> yang muncul di Layar Kamu </marquee>
+
+<div id="popup"></div>
+   
+    
+  <h1>Kalian hanya butuh beberapa dari ini</h1>
+<!-- CSTM-BG TEXT -->
+<div class="bg-text">
+    <p>Everything about her</p>
+</div>
+  <p class="cstm-text">Tunggu selagi aku mengetik<span class="typing-text"></span></p>
+
+  <br />
+<!-- Menampilkan teks TYPING ANM -->
+<div style="margin: 12px; font-family: Arial; font-size: 14px; color: #ff1493; background-color: #FFFFFF;">
+  <span id="infoDia"></span>
+</div>
+    
+    <!-- Menampilkan teks TYPING ANM -->
+<div style="margin: 12px; font-family: Arial; font-size: 14px; color: #ff1493; background-color: #FFFFFF;">
+  <span id="myBio"></span>
+</div> 
+
+<!-- CSTM-BG TEXT -->
+<div class="bg-text">
+    <p>Ini nama lengkap dia</p>
+</div>
+
+<!-- Menampilkan teks klik->salin -->
+  <div id="teksDiklik" onclick="salinTeks()" style="cursor: pointer;">uaglrIMTgzslmcyL5ZgO2ryn8bMLR11KHcHNKnP6iOUelIMKPAGvbbn3+OqsbWch8SBIxXXcF4iNiQfZfcmf+cLv6wamBePIIrl/Nk2djOmi1lJZD/axVMkN+Qa6IP9v
+  </div>
+
+    <!-- Menampilkan teks TYPING ANM -->
+<div style="margin: 12px; font-family: Arial; font-size: 14px; color: #FF4500; background-color: #FFFFFF;">
+  <span id="caraDecrypt"></span>
+</div>
+    
+    <!-- CSTM-BG TEXT -->
+<div class="bg-text">
+    <p>Ini umur kami</p>
+</div>
+    <!-- Tabel teks, our age-->
+<table border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="text-align: center;">Who</th>
+      <th style="text-align: center;">Age</th>
+      <th style="text-align: center;">When</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center;">Me</td>
+      <td style="text-align: center;" id="myAge"></td>
+      <td style="text-align: center;">Today</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">She</td>
+      <td style="text-align: center;" id="herAge"></td>
+      <td style="text-align: center;">Today</td>
+    </tr>
+  </tbody>
+</table>
+  
+  
+<!-- CSTM-BG TEXT -->
+<div class="bg-text">
+    <p>About Something</p>
+</div>
+<div id="imageContainer">
+    <!-- Ganti URL gambar dengan URL gambar dari cloud storage -->
+    <img src="https://i.ibb.co/GHvh28V/IMG-20240113-124223.png" alt="Tentang Perasaanku" id="cloudImage">
+
+    <!-- Teks info akan ditampilkan di sini -->
+    <div id="imageInfo">
+        <p>
+            Tentang Perasaanku, mungkin sebelumnya kalian sudah tahu ya, Kalau aku punya Perasaan ke Orang ini, Aku bilang di
+            <a href="https://rentry.co/aldi" target="_blank">rentry.co/aldi</a> kalau Aku punya perasaan yang aneh dimana aku
+            tidak suka padanya namun aku sayang padanya, sayang yang dimaksud adalah perasaan protektif terhadap dia. Aku
+            juga pernah bilang "Dia Selalu muncul didalam mimpi, membawa suasana seakan-akan itu mimpi buruk namun sebenarnya
+            kedatangannya didalam mimpi adalah Untuk Memperbaiki Mimpi itu." Sebenarnya mimpi itu adalah Representasi dari
+            Perasaanku, di dalam mimpiku ini, dia selalu posisinya adalah Adik aku, jadi Maksud mimpi ini adalah "Perasaanku
+            Terhadapnya adalah Sama seperti Perasaanku terhadap Adikku" jadi Perasaan aku ini Normal, karena Siapapun bisa
+            Merasa tidak suka/kesal terhadap keluarganya tapi Tetap sayang, benar? Jadi kurang-lebih adalah seperti itu
+        </p>
+  </div>
+    </div>
+ <!-- CSTM-BG TEXT -->
+<div class="bg-text">
+    <p>Apa Yang kuingat</p>
+</div>     
+
+<p>¹Inget banget pas Kelas 5 Mulai Mimpiin dia padahal baru aja 6 Hari ketemu :) <mark class="highlight">[2018]</mark></p>
+<p>²Kelas 6 mulai Muncul sifat memperhatikan, <mark class="highlight">[2019]</mark></p>
+<p>³Lulus SD Mulai Kehilangan dan Diserang oleh Mimpi indah... Yang membawa kenangan buruk, dan mimpi buruk yang membawa kenangan indah... <b><i>Bukan apa yaa, tapi Setiap gw Tidur gak peduli tidur Siang atau ketiduran atau tidur malam istirahat seperti sediakala, Selalu aja muncul dia di mimpi gw</i>, padahal SMP kami beda :> <mark class="highlight">[2020-2022]</mark></b><p>
+<p>⁴lalu di pertemukan kembali di SMK pertamakali seakan-akan Ditarik kembali ke masa-masa Awal Kami berpisah padahal ini adalah Pertemuan🙂☝️ <mark class="highlight">[2023]</mark></p>
+<br>
+<blockquote>
+  Yaa! Perasaan ini awal mulanya muncul tanpa Sadar, dan aku mulai menyadarinya
+  saat munculnya dia di mimpi pertamaku <i>tentangnya</i> saat aku kelas 5 yaitu
+  dia yang masih kecil;
+  <blockquote>
+    <li>Alam bawah sadarku tahu wajah dia dimasa kecil sebelum aku mengetahuinya
+      di dunia maya melalui foto di Instagram saat aku SMP kelas 7,</li>
+    <blockquote>
+      <li> Kelas 5 > Kelas 7 =⟩ <mark class="highlight">From 2018</mark>
+      <mark class="highlight">To 2020</mark> |
+        <strong><mark class="highlight">Rentang waktu 2 tahun</mark></strong></li>
+    </blockquote>
+    <li>bahkan mengetahui dimana lokasi rumahnya melalui firasat di kelas 7 SMP
+    sebelum akhirnya mengetahui Rumahnya secara langsung di kelas 10 SMK...
+      bulan lalu</li>
+    <blockquote>
+      <li> Kelas 7 > Kelas 10 =⟩ <mark class="highlight">From 2020</mark>
+      <mark class="highlight">To 2023</mark> |
+        <strong><mark class="highlight">Rentang waktu 3 tahun</mark></strong></li>
+    </blockquote>
+  </blockquote>
+  <span class = "cstm-text">Adalah Sebuah kebetulan, Percayalah!</span>
+  <blockquote>
+    <input type="checkbox" disabled="" checked=""> Mengetahui warna kendaraan dia pada saat aku SMP kelas 8 Sebelum
+    Akhirnya tahu secara nyata di kelas 9,
+    <blockquote>
+      <li> Kelas 8 > Kelas 10 =⟩ <mark class="highlight">From 2021</mark>
+      <mark class="highlight">To 2022</mark> |
+        <strong><mark class="highlight">Rentang waktu 1 tahun</mark></strong></li>
+    </blockquote>
+    <input type="checkbox" disabled="" checked=""> Tahu wajah ayahnya di kelas 8 Sebelum akhirnya tahu secara nyata di masa MPLS SMK...
+    <blockquote>
+      <li> Kelas 8 > Kelas 9 =⟩ <mark class="highlight">From 2021</mark>
+      <mark class="highlight">To 2022</mark> |
+        <strong><mark class="highlight">Rentang Waktu 1 tahun</mark></strong></li>
+    </blockquote>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+Kebetulan yang HAKIKI😑
+    </blockquote>
+  </blockquote>
+</blockquote>
+<br>
+      <div id="container">
+    <div id="title">⚠</div>
+    <div id="triangle"></div>
+    <p>
+      Tinggal mencari tahu apakah Mimpi di kelas 6 Itu benar-benar terjadi dimana masa kami kecil pernah bertemu di Tempat
+      Perbelanjaan, jika YA! Maka, Itu hanya Sebuah Representasi atau Flashback....
+    </p>
+  </div>
+    <div>
+      <div>
+    <br>
+        <p>Beberapa Hal yang Diketahui sebelum Tahu :} lebih tepatnya *Seharusnya tidak aku ketahui*;</p>
+<ul>
+    <li>1. Alamat Rumah melalui Firasat 2 Tahun sebelum akhirnya benar-benar mengetahuinya</li>
+<li>2. Wajah Ayahnya yang sudah diketahui alam bawah sadar 1 Tahun sebelum akhirnya benar-benar mengetahui secara pasti saat MPLS SMK</li>
+<li>3. Warna kendaraan yang sudah diketahui 1 Tahun sebelum benar-benar mengetahuinya <i>(BTW udh Sekitar 2-3 Tahun, karena Gw tau Kendaraannya itu bersamaan disaat gw tau Muka dia di masa kecil)</i></li>
+        </ul>
+    </div>
+</div>
+   
+ <!-- CSTM-BG TEXT -->
+<div class="bg-text">
+    <p>Shortlink Yang Membayar dengan CPM TINGGI</p>
+</div>     
+
+    <table border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="text-align: center;">GPLink</th>
+      <th style="text-align: center;">Paid4link</th>
+      <th style="text-align: center;">My Paste</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center;"><a href="https://gplinks.in/ref/azuresp"><button>Join GPLink Gratis</button></a></td>
+      <td style="text-align: center;"><a href="https://paid4link.com/ref/azuresheep3117"><button>Join Paid4link Gratis</button></a></td>
+      <td style="text-align: center;"><a href="https://rentry.co/aspz3"><button>Klik Disini</button></a></td>
+    </tr>
+</table>
+    
+
+      <div style="text-align: center;" class="cool-button"><a href="https://gplinks.co/nPMT78im">Donate Gratis v1     </a></div>
+      <div style="text-align: center;" class="cool-button"><a href="https://paid4link.com/ref/azuresheep3117">Donate Gratis v2     </a></div>
+      <div style="text-align: center;" class="cool-button"><a href="https://paid4link.com/ref/azuresheep3117">Donate Gratis v3     </a></div>
+
+<!--########################################################################################################
+                                             JAVASCRIPT
+########################################################################################################-->     
+    <script>
+  // Fungsi untuk menampilkan popup
+  function showPopup(message, link) {
+    const popup = document.getElementById('popup');
+    popup.innerHTML = `<p>${message}</p><a href="${link}" target="_blank">Klik disini untuk melanjutkan</a>`;
+    popup.style.display = 'block';
+
+    setTimeout(function() {
+      popup.style.display = 'none';
+    }, 10000); // Tutup popup setelah 4 detik
+  }
+
+  // Event listener untuk mendeteksi perubahan status online/offline
+  window.addEventListener('online', function() {
+    showPopup('Kakak sudah Online kembali.', 'https://aldi.setiadiputra.my.id/p/love.html');
+  });
+
+  window.addEventListener('offline', function() {
+    showPopup('Kak, Internet kakaknya terputus Nih', 'https://aldi.setiadiputra.my.id/p/love.html');
+  });
+</script>
+<script>
+  // Typing Text
+  function typeText(text, destination, delay = 80) {
+    var currentChar = 1;
+
+    function type() {
+      var dest = document.getElementById(destination);
+      if (dest) {
+        dest.innerHTML = text.substr(0, currentChar) + '<span class="blink">_</span>';
+        currentChar++;
+
+        if (currentChar <= text.length) {
+          setTimeout(type, text.charAt(currentChar - 1) === '‎' ? 3000 : delay);
+        } else {
+          currentChar = 1;
+          setTimeout(type, 5000);
+        }
+      }
+    }
+
+    type();
+  }
+
+  typeText("- Dia bernama A*i*** dan tentunya dia perempuan‎<br>- Dia itu teman SDku, dari kelas 5 sampai kelas 6, Kami SMP terpisah, aku di SMPN 20 sementara dia di... <a href='https://go.paid4link.com/gOIqja5'>***</a>, namun sekarang kami di SMK yang sama‎<br>- Aku tidak tahu dia lahir dimana, tapi dia lahir 3 Minggu 5 hari lebih lambat dari aku‎<br>- Dia beragama Islam <i>Sama Sepertiku, Alhamdulillah</i>‎<br>- Rumah kami tidak terlalu jauh tapi tidak juga dekat‎<br>  - Menariknya, kami punya Inisial yang... Entahlah :), Coba saja lihat‎<br>> Inisial nama lengkapku<br>  > A S P‎<br>> Inisial nama lengkapnya<br>  > A S L‎<br>- Terlihat hampir sama, menariknya lagi, huruf terakhir Nama kami ... Lihat saja :>‎<br>> Huruf terakhir namaku<br>  > ald<i>i</i> setiad<i>i</i> putr<i>a</i> => i i a (itulah kenapa username Telegramku @asp_iia)‎<br>> Huruf terakhir namanya<br>  > a a i‎<br>**Jadi Huruf terakhir namaku adalah i·i·a dari Aldi Setiadi Putra sementara dia a·a·i 😅🔥**", "infoDia");
+  typeText("Salin teks terenkripsi di atas dengan cara mengkliknya untuk mengetahui nama Dia‎<br>Di Enkripsi dengan Advanced Encryption Standard (AES)<br>Gunakan sandi <b>1</b>‎<br>Gunakan layanan Dekripsi yang tersedia Dan Masukkan ‎Kata Sandinya", "caraDecrypt");
+
+  // Tanggal lahir
+      // Tanggal lahir
+    function calculateAge(birthDate) {
+      var currentDate = new Date();
+      var birthDateTime = new Date(birthDate);
+      var ageInMilliseconds = currentDate - birthDateTime;
+
+      var years = Math.floor(ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000));
+      ageInMilliseconds -= years * 365.25 * 24 * 60 * 60 * 1000;
+
+      var months = Math.floor(ageInMilliseconds / (30.44 * 24 * 60 * 60 * 1000));
+      ageInMilliseconds -= months * 30.44 * 24 * 60 * 60 * 1000;
+
+      var weeks = Math.floor(ageInMilliseconds / (7 * 24 * 60 * 60 * 1000));
+      ageInMilliseconds -= weeks * 7 * 24 * 60 * 60 * 1000;
+
+      var days = Math.floor(ageInMilliseconds / (24 * 60 * 60 * 1000));
+      ageInMilliseconds -= days * 24 * 60 * 60 * 1000;
+
+      var hours = Math.floor(ageInMilliseconds / (60 * 60 * 1000));
+      ageInMilliseconds -= hours * 60 * 60 * 1000;
+
+      var minutes = Math.floor(ageInMilliseconds / (60 * 1000));
+      ageInMilliseconds -= minutes * 60 * 1000;
+
+      var seconds = Math.floor(ageInMilliseconds / 1000);
+
+      return years + " Tahun, " + months + " Bulan, " + weeks + " Minggu, " + days + " Hari, ";
+    }
+
+    function updateMyAge() {
+      var myAgeText = calculateAge("November 3, 2007");
+      document.getElementById("myAge").innerHTML = myAgeText;
+    }
+
+    function updateHerAge() {
+      var herAgeText = calculateAge("November 29, 2007");
+      document.getElementById("herAge").innerHTML = herAgeText;
+    }
+
+    setInterval(updateMyAge, 1000);
+    setInterval(updateHerAge, 1000);
+
+  // Titik-titik
+  function typeEffect() {
+    var text = "...."; // Ganti dengan teks yang diinginkan
+    var index = 0;
+
+    function type() {
+      document.querySelector('.typing-text').textContent = text.substring(0, index);
+      index++;
+      if (index <= text.length) {
+        setTimeout(type, 800); // Ganti nilai interval sesuai dengan kecepatan yang diinginkan
+      } else {
+        setTimeout(deleteEffect, 4000); // Tunggu sejenak setelah mengetik selesai
+      }
+    }
+
+    function deleteEffect() {
+      var currentText = document.querySelector('.typing-text').textContent;
+      if (currentText.length > 0) {
+        document.querySelector('.typing-text').textContent = currentText.slice(0, -1);
+        setTimeout(deleteEffect, 1000); // Ganti nilai interval sesuai dengan kecepatan yang diinginkan
+      } else {
+        index = 0;
+        setTimeout(type, 100); // Tunggu sejenak sebelum memulai kembali
+      }
+    }
+
+    type();
+  }
+
+  typeEffect();
+
+
+// JavaScript
+// Ambil elemen gambar dan teks info
+var cloudImage = document.getElementById('cloudImage');
+//var imageInfo = document.getElementById('imageInfo');
+
+// Tambahkan event listener untuk menampilkan teks info saat pointer diarahkan ke gambar
+cloudImage.addEventListener('mouseover', function () {
+    imageInfo.style.display = 'block';
+});
+
+cloudImage.addEventListener('click', function () {
+console.log("╔════════════════════════════╗");
+console.log("║   Adinda Sevina Lestari    ║");
+console.log("╚════════════════════════════╝");
+ });
+
+// Sembunyikan teks info saat pointer tidak lagi diarahkan ke gambar
+cloudImage.addEventListener('mouseout', function () {
+    imageInfo.style.display = 'none';
+});
+
+// Tambahkan event listener untuk menampilkan teks info saat gambar diklik di perangkat mobile
+cloudImage.addEventListener('touchend', function (event) {
+    // Cegah perilaku default saat sentuhan yang lama
+    event.preventDefault();
+    
+    // Ganti perintah alert sesuai kebutuhan
+    alert("Tentang Perasaanku, mungkin sebelumnya kalian sudah tahu ya, Kalau aku punya Perasaan ke Orang ini, Aku bilang di https://rentry.co/aldi kalau Aku punya perasaan yang aneh dimana aku tidak suka padanya namun aku sayang padanya, sayang yang dimaksud adalah perasaan protektif terhadap dia. Aku juga pernah bilang 'Dia Selalu muncul didalam mimpi, membawa suasana seakan-akan itu mimpi buruk namun sebenarnya kedatangannya didalam mimpi adalah Untuk Memperbaiki Mimpi itu.' Sebenarnya mimpi itu adalah Representasi dari Perasaanku, di dalam mimpiku ini, dia selalu posisinya adalah Adik aku, jadi Maksud mimpi ini adalah 'Perasaanku Terhadapnya adalah Sama seperti Perasaanku terhadap Adikku' jadi Perasaan aku ini Normal, karena Siapapun bisa Merasa tidak suka/kesal terhadap keluarganya tapi Tetap sayang, benar? Jadi kurang-lebih adalah seperti itu"); // Ganti teks alert sesuai kebutuhan
+console.log("╔════════════════════════════╗");
+console.log("║   Adinda Sevina Lestari    ║");
+console.log("╚════════════════════════════╝");
+});
+
+  
+  
+function salinTeks() {
+  var teks = document.getElementById("teksDiklik").innerText;
+
+  // Buat elemen div sementara untuk menempatkan teks
+  var elemSementara = document.createElement("div");
+  elemSementara.style.position = "absolute";
+  elemSementara.style.left = "-9999px";
+  elemSementara.innerText = teks;
+  document.body.appendChild(elemSementara);
+
+  // Pilih teks di dalam elemen sementara
+  var range = document.createRange();
+  range.selectNode(elemSementara);
+  window.getSelection().removeAllRanges();
+  window.getSelection().addRange(range);
+
+  // Izinkan pengguna menyalin teks secara manual
+  document.addEventListener("copy", function(event) {
+    event.preventDefault();
+    event.clipboardData.setData("text/plain", teks);
+  });
+
+  // Panggil perintah copy
+  document.execCommand("copy");
+
+  // Hapus elemen sementara
+  document.body.removeChild(elemSementara);
+
+  // Tindakan setelah menyalin teks berhasil
+  alert("Teks berhasil disalin!");
+}
+
+
+
+
+
+</script>  
+    <!-- Footer -->
+<footer style="background-color: #f0f0f0; padding: 20px; text-align: center;">
+  <p style="margin: 0; font-size: 14px; color: #333;">Aldi Setiadi Putra - Nothing is Impossible</p>
+</footer>
+
+  </body>
+</head>
+
+</html>
