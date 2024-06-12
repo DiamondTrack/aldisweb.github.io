@@ -1,9 +1,15 @@
 {
   "redirects": [
     {
-      "source": "/([^\\.]*)$",
-      "destination": "/$1/",
-      "permanent": true
+      "source": "/:path*/",
+      "destination": "/:path*/",
+      "permanent": true,
+      "has": [
+        {
+          "type": "file",
+          "negate": true
+        }
+      ]
     }
   ]
 }
