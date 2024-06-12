@@ -1,9 +1,9 @@
 {
   "redirects": [
     {
-      "source": "/((?!.*\\..*).*)",
+      "source": "/([^/]+)$",
       "destination": "/$1/",
-      "permanent": true
+      "statusCode": 308
     }
   ]
 }
