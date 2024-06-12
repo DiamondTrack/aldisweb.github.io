@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirect subdirectories without trailing slash to have a trailing slash
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,4}$
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [L,R=301]
+
+# Handle 404 errors
+ErrorDocument 404 /randomovie/belum-ada.html
