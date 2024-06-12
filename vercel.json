@@ -1,13 +1,12 @@
 {
-  "redirects": [
+  "rewrites": [
     {
-      "source": "/:path*/",
-      "destination": "/:path*/",
-      "permanent": true,
+      "source": "/:match*/",
+      "destination": "/:match*/",
       "has": [
         {
           "type": "file",
-          "path": "/:path*."
+          "negate": true
         }
       ]
     }
