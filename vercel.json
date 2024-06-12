@@ -1,9 +1,11 @@
 {
-  "redirects": [
+  "rewrites": [
     {
-      "source": "/(.*[^])",
-      "destination": "/$1/",
-      "permanent": true
+      "source": "/:path*",
+      "function": {
+        "module": "./redirect.js",
+        "handler": "redirect"
+      }
     }
   ]
 }
