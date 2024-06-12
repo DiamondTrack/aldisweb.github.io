@@ -7,7 +7,7 @@
       "has": [
         {
           "type": "file",
-          "negate": true
+          "path": "/:path*."
         }
       ]
     }
