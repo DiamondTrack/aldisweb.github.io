@@ -1,9 +1,9 @@
 {
   "redirects": [
     {
-      "source": "^/(?<path>[^/.]+[^/]*)$",
-      "destination": "/${path}/",
-      "statusCode": 308
+      "source": "/(.*[^/])",
+      "destination": "/$1/",
+      "permanent": true
     }
   ]
 }
