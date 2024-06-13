@@ -49,16 +49,19 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+        input[readonly] {
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
     <h1>Submit Your Quote</h1>
     <form id="quoteForm">
         <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" required><br><br>
+        <input type="text" id="title" name="title" placeholder="Untuk berubah, berjalanlah maju" required><br><br>
         
         <label for="author">Author:</label><br>
-        <input type="text" id="author" name="author" required><br><br>
+        <input type="text" id="author" name="author" placeholder="Aldi" required><br><br>
         
         <label for="theme">Theme:</label><br>
         <select id="theme" name="theme" required>
@@ -69,12 +72,31 @@
         </select><br><br>
         
         <label for="message">Quote:</label><br>
-        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        <textarea id="message" name="message" rows="4" placeholder="Setiap hari adalah berbeda, apa yang telah berlalu dapat berubah pada hari selanjutnya" required></textarea><br><br>
+        
+        <label for="ip">Your IP Address:</label><br>
+        <input type="text" id="ip" name="ip" readonly><br><br>
         
         <input type="submit" value="Submit Quote">
     </form>
 
     <script>
+        async function fetchIp() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch IP address');
+                }
+                const data = await response.json();
+                document.getElementById('ip').value = data.ip;
+            } catch (error) {
+                console.error('Error fetching IP address:', error);
+                document.getElementById('ip').value = 'Error fetching IP';
+            }
+        }
+
+        fetchIp();
+
         document.getElementById('quoteForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -82,8 +104,8 @@
             let author = document.getElementById('author').value;
             let theme = document.getElementById('theme').value;
             let message = document.getElementById('message').value;
+            let ip = document.getElementById('ip').value;
 
-            // Replace with your Telegram Bot token and chat ID
             const telegramBotToken = '6709537552:AAHPmHPfEzzRukhHvgGfavWMRg_fUrqgfxE';
             const chatId = '5110562686';
 
@@ -92,7 +114,8 @@
 Title: ${title}
 Author: ${author}
 Theme: ${theme}
-Quote: ${message}`;
+Quote: ${message}
+IP Address: ${ip}`;
 
             // Send the message via Telegram Bot API
             const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
@@ -104,6 +127,7 @@ Quote: ${message}`;
                         alert('Quote submitted successfully!');
                         // Optionally clear the form after successful submission
                         document.getElementById('quoteForm').reset();
+                        document.getElementById('ip').value = ip; // Reset IP address field with the fetched IP
                     } else {
                         alert('Failed to submit quote.');
                     }
@@ -115,4 +139,4 @@ Quote: ${message}`;
         });
     </script>
 </body>
-  </html>
+</html>
