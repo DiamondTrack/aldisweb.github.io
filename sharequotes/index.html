@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Quote</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+            padding: 20px;
+        }
+        form {
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        textarea {
+            height: 150px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Submit Your Quote</h1>
+    <form id="quoteForm">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+        
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author" required><br><br>
+        
+        <label for="theme">Theme:</label><br>
+        <select id="theme" name="theme" required>
+            <option value="">-- Select Theme --</option>
+            <option value="inspirational">Inspirational</option>
+            <option value="motivational">Motivational</option>
+            <option value="love_diary">Love Diary</option>
+        </select><br><br>
+        
+        <label for="message">Quote:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        
+        <input type="submit" value="Submit Quote">
+    </form>
+
+    <script>
+        document.getElementById('quoteForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let title = document.getElementById('title').value;
+            let author = document.getElementById('author').value;
+            let theme = document.getElementById('theme').value;
+            let message = document.getElementById('message').value;
+
+            // Replace with your Telegram Bot token and chat ID
+            const telegramBotToken = '6709537552:AAHPmHPfEzzRukhHvgGfavWMRg_fUrqgfxE';
+            const chatId = '5110562686';
+
+            // Construct the message to be sent
+            const text = `New Quote Submission:
+Title: ${title}
+Author: ${author}
+Theme: ${theme}
+Quote: ${message}`;
+
+            // Send the message via Telegram Bot API
+            const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert('Quote submitted successfully!');
+                        // Optionally clear the form after successful submission
+                        document.getElementById('quoteForm').reset();
+                    } else {
+                        alert('Failed to submit quote.');
+                    }
+                })
+                .catch(error => {
+                    alert('Error sending quote.');
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+  </html>
